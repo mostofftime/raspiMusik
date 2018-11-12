@@ -15,8 +15,8 @@ const server = http.createServer((req, res) => { //create server
       console.log("play")
     }
 
-    request.on('end', function() {
-      response.end();
+    req.on('end', function() {
+      res.end();
     });
 
   } else {
