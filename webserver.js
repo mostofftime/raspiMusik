@@ -13,14 +13,13 @@ const server = http.createServer((req, res) => { //create server
     console.log("POST");
     console.log(req.url);
 
-    if(req.url === "/play"){
+    if (req.url === "/play") {
       console.log("play");
     }
 
-    req.on('end', function() {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      return res.end();
-    });
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    return res.end();
+
 
   } else {
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
