@@ -1,8 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 
-var Omx = require('node-omxplayer');
-var player = Omx('my-video.mp4');
+//var Omx = require('node-omxplayer');
+//var player = Omx('my-video.mp4');
 
 const hostname = '192.168.0.69';
 const port = 8080;
