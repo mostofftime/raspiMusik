@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => { //create server
     }
 
     req.on('end', function() {
-      res.end();
+      return res.status(200).json('success');
     });
 
   } else {
