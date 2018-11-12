@@ -15,7 +15,6 @@ const server = http.createServer((req, res) => { //create server
 
     if (req.url === "/play") {
       console.log("start playing");
-      console.log(player.running);
       player.play();
     }
 
@@ -40,7 +39,7 @@ const server = http.createServer((req, res) => { //create server
 
     if(!player.running){
       player.newSource('/media/10 - Twenty One Pilots - Guns For Hands.mp3');
-      player.pause();
+     // player.pause();
     }
 
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
