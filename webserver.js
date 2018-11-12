@@ -12,8 +12,8 @@ const server = http.createServer((req, res) => { //create server
 
     console.log("POST");
     console.log(req.url);
-    if(req.url === "play"){
-      console.log("play")
+    if(req.url === "/play"){
+      console.log("play");
     }
 
     req.on('end', function() {
