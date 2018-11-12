@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 var Omx = require('node-omxplayer');
-var player = Omx('/media/10 - Twenty One Pilots - Guns For Hands.mp3', 'local', true, 10).pause();
+var player = Omx('', 'local', true, 10).pause();
 
 const hostname = '192.168.0.69';
 const port = 8080;
@@ -37,6 +37,11 @@ const server = http.createServer((req, res) => { //create server
     })
 
   } else {
+
+    if(player.info() === ''){
+      player.newSource('/media/10 - Twenty One Pilots - Guns For Hands.mp3');
+    }
+
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
       if (err) {
         res.writeHead(404, { 'Content-Type': 'text/html' }); //display 404 on error
