@@ -14,11 +14,18 @@ const server = http.createServer((req, res) => { //create server
     console.log(req.url);
 
     if (req.url === "/play") {
+
+      if (!player.running) {
+        player.newSource('/media/10 - Twenty One Pilots - Guns For Hands.mp3');
+      } else {
+        player.play();
+      }
+
       console.log("start playing");
-      player.play();
+
     }
 
-    if(req.url === "/pause"){
+    if (req.url === "/pause") {
       console.log("stop playing");
       player.pause();
     }
@@ -37,10 +44,6 @@ const server = http.createServer((req, res) => { //create server
 
   } else {
 
-    if(!player.running){
-      player.newSource('/media/10 - Twenty One Pilots - Guns For Hands.mp3');
-      player.play();
-    }
 
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
       if (err) {
