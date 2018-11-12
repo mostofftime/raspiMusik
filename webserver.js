@@ -9,9 +9,10 @@ const port = 8080;
 
 const server = http.createServer((req, res) => { //create server
   if (req.method === "POST") {
+    console.log("POST");
     req.on('play', () => {
       console.log("play");
-    })
+    });
   } else {
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
       if (err) {
