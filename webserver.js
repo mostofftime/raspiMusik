@@ -20,3 +20,7 @@ const server = http.createServer((req, res) => { //create server
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+app.post("/", function (req, res) {
+  console.log("post bekommen");
+});
