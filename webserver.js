@@ -9,6 +9,7 @@ const port = 8080;
 
 const server = http.createServer((req, res) => { //create server
   if (req.method === "post") {
+    console.log("post");
     req.on('play', () => {
       console.log("play");
     })
