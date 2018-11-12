@@ -38,8 +38,9 @@ const server = http.createServer((req, res) => { //create server
 
   } else {
 
-    if(player.info() === ''){
+    if(!player.running){
       player.newSource('/media/10 - Twenty One Pilots - Guns For Hands.mp3');
+      player.pause();
     }
 
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
