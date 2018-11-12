@@ -18,9 +18,17 @@
         });
     </script>
 
-    <form action="/pause" method="post">
+    <form action="" id="pause">
         <input type="submit" value="Pause">
     </form>
+    <script>
+        $(document).ready(function () {
+            $(document).on('submit', '#pause', function () {
+                $.post("pause");
+                return false;
+            });
+        });
+    </script>
 
 </body>
 
