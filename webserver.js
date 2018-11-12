@@ -8,9 +8,10 @@ const hostname = '192.168.0.69';
 const port = 8080;
 
 const server = http.createServer((req, res) => { //create server
-  console.log(req.method);
   if (req.method === "POST") {
-    console.log("post");
+    req.on('play', () => {
+      console.log("play");
+    })
   } else {
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
       if (err) {
