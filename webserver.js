@@ -11,6 +11,7 @@ const server = http.createServer((req, res) => { //create server
   if (req.method === "POST") {
 
     console.log("POST");
+    console.log(req.url);
     if(req.url === "play"){
       console.log("play")
     }
