@@ -2,11 +2,10 @@ const http = require('http');
 const fs = require('fs');
 
 var Omx = require('node-omxplayer');
-var player = Omx('/media/10 - Twenty One Pilots - Guns For Hands.mp3', 'local', true, 10);
+var player = Omx('/media/10 - Twenty One Pilots - Guns For Hands.mp3', 'local', true, 10).pause();
 
 const hostname = '192.168.0.69';
 const port = 8080;
-player.pause();
 
 const server = http.createServer((req, res) => { //create server
   if (req.method === "POST") {
