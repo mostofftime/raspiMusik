@@ -3,7 +3,6 @@ const fs = require('fs');
 
 var Omx = require('node-omxplayer');
 var player = Omx('/media/10 - Twenty One Pilots - Guns For Hands.mp3', 'local', true, 10);
-player.pause();
 
 const hostname = '192.168.0.69';
 const port = 8080;
@@ -16,7 +15,13 @@ const server = http.createServer((req, res) => { //create server
 
     if (req.url === "/play") {
       console.log("start playing");
+      console.log(player.running);
       player.play();
+    }
+
+    if(req.url === "/pause"){
+      console.log("stop playing");
+      player.pause();
     }
 
     res.writeHead(200, { 'Content-Type': 'text/html' });
