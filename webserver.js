@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 
 var Omx = require('node-omxplayer');
-var player = Omx('', 'local', true, 10).pause();
+var player = Omx();
 
 const hostname = '192.168.0.69';
 const port = 8080;
