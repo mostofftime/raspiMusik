@@ -12,12 +12,14 @@ const server = http.createServer((req, res) => { //create server
 
     console.log("POST");
     console.log(req.url);
+
     if(req.url === "/play"){
       console.log("play");
     }
 
     req.on('end', function() {
-      return res.status(200).json('success');
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      return res.end();
     });
 
   } else {
