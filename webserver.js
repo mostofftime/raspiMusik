@@ -8,7 +8,7 @@ const hostname = '192.168.0.69';
 const port = 8080;
 
 const server = http.createServer((req, res) => { //create server
-  console.log("request");
+  console.log(req.method);
   if (req.method === "post") {
     console.log("post");
   } else {
