@@ -11,14 +11,10 @@ const server = http.createServer((req, res) => { //create server
   if (req.method === "POST") {
 
     console.log("POST");
-    if(req.url === "play"){
-      console.log("play")
-    }
-
-    request.on('end', function() {
-      response.end();
+    req.on('play', () => {
+      console.log("play");
     });
-
+    
   } else {
     fs.readFile(__dirname + '/index.html', function (err, data) { //read file index.html in public folder
       if (err) {
