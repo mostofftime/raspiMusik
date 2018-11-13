@@ -56,8 +56,8 @@ app.post('/volDown', function (req, res) {
 });
 
 app.post('/song', function(req, res) {
-    console.log(req);
     console.log(req.body);
+    player.newSource("/media/Musik" + req.body.title);
 });
 
 app.listen(8080);
