@@ -12,7 +12,7 @@
 
         <iframe name="iframe" style="display:none;"></iframe>
 
-        <form class="form-group" action="/play" method="post" target="iframe" style="float: left">
+        <form action="/play" method="post" target="iframe" style="float: left">
             <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
         </form>
 
@@ -27,8 +27,6 @@
         <form action="/volUp" method="post" target="iframe">
             <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
         </form>
-
-        
 
         <ul>
             <% songs.forEach(function(song) { %>
