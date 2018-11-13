@@ -3,7 +3,6 @@
 
 <head>
     <title>Raspimusik</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -14,19 +13,19 @@
     <button class="btn">a</button>
 
     <form class="form-group" action="/play" method="post" target="iframe">
-        <button class="btn" type="submit" value="Play">
+        <button class="btn btn-primary input-group-btn" type="submit" value="Play">
     </form>
 
     <form action="/pause" method="post" target="iframe">
-        <button class="btn" type="submit" value="Pause">
+        <button type="submit" value="Pause">
     </form>
 
     <form action="/volUp" method="post" target="iframe">
-        <button class="btn" type="submit" value="+">
+        <button type="submit" value="+">
     </form>
 
     <form action="/volDown" method="post" target="iframe">
-        <button class="btn" type="submit" value="-">
+        <button type="submit" value="-">
     </form>
 
     <ul>
