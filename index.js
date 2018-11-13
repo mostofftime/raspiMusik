@@ -56,6 +56,7 @@ app.post('/volDown', function (req, res) {
 });
 
 app.post('/song', function(req, res) {
+    console.log(req);
     console.log(req.body.name);
 });
 
