@@ -10,27 +10,28 @@
     <h1>Raspimusik</h1>
 
     <iframe name="iframe" style="display:none;"></iframe>
+    
     <form action="/play" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="Play">
+        <button class="btn" type="submit" value="Play">
     </form>
 
     <form action="/pause" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="Pause">
+        <button class="btn" type="submit" value="Pause">
     </form>
 
     <form action="/volUp" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="+">
+        <button class="btn" type="submit" value="+">
     </form>
 
     <form action="/volDown" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="-">
+        <button class="btny" type="submit" value="-">
     </form>
 
     <ul>
         <% songs.forEach(function(song) { %>
 
         <form action="/song" method="post" target="iframe">
-            <button readonly class="btn btn-primary" type="submit" value='<%=song %>' name='title'> 
+            <button readonly class="btn" type="submit" value='<%=song %>' name='title'> 
         </form>
         <% }); %>
     </ul>
