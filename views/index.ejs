@@ -7,35 +7,36 @@
 </head>
 
 <body>
-    <h1>Raspimusik</h1>
+    <div class="col-2">
+        <h1>Raspimusik</h1>
 
-    <iframe name="iframe" style="display:none;"></iframe>
+        <iframe name="iframe" style="display:none;"></iframe>
 
-    <form class="form-group" action="/play" method="post" target="iframe" style="float: left">
-        <button class="btn btn-primary" type="submit" value="Play"><span class="glyphicon glyphicon-play-circle"></span></button>
-    </form>
-
-    <form action="/pause" method="post" target="iframe" style="float: left">
-        <button class="btn btn-primary" type="submit" value="Pause"><span class="glyphicon glyphicon-pause"></span></button>
-    </form>
-
-    <form action="/volUp" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="+"><span class="glyphicon glyphicon-volume-up"></span></button>
-    </form>
-
-    <form action="/volDown" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="-"><span class="glyphicon glyphicon-volume-down"></span></button>
-    </form>
-
-    <ul>
-        <% songs.forEach(function(song) { %>
-
-        <form action="/song" method="post" target="iframe">
-            <button readonly class="btn btn-primary" type="submit" value='<%=song %>' name='title'></button>
+        <form class="form-group" action="/play" method="post" target="iframe" style="float: left">
+            <button class="btn btn-primary" type="submit" value="Play"><span class="glyphicon glyphicon-play-circle"></span></button>
         </form>
-        <% }); %>
-    </ul>
 
+        <form action="/pause" method="post" target="iframe" style="float: left">
+            <button class="btn btn-primary" type="submit" value="Pause"><span class="glyphicon glyphicon-pause"></span></button>
+        </form>
+
+        <form action="/volUp" method="post" target="iframe">
+            <button class="btn btn-primary" type="submit" value="+"><span class="glyphicon glyphicon-volume-up"></span></button>
+        </form>
+
+        <form action="/volDown" method="post" target="iframe">
+            <button class="btn btn-primary" type="submit" value="-"><span class="glyphicon glyphicon-volume-down"></span></button>
+        </form>
+
+        <ul>
+            <% songs.forEach(function(song) { %>
+
+            <form action="/song" method="post" target="iframe">
+                <button readonly class="btn btn-primary" type="submit" value='<%=song %>' name='title'></button>
+            </form>
+            <% }); %>
+        </ul>
+    </div>
 </body>
 
 </html>
