@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource(mediaDir + currentSong, "local", false, 5);
+            player.newSource(mediaDir + currentSong + ".mp3", "local", false, 5);
         } else {
             player.play();
         }
