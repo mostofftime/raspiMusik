@@ -11,18 +11,13 @@
 
     <iframe name="iframe" style="display:none;"></iframe>
 
-    <button class="btn">a</button>
-    <span>
-        <form class="form-group" action="/play" method="post" target="iframe">
-            <button class="btn btn-primary" type="submit" value="Play"><span class="glyphicon glyphicon-play-circle"></span></button>
-        </form>
-    </span>
+    <form class="form-group" action="/play" method="post" target="iframe" style="float: left">
+        <button class="btn btn-primary" type="submit" value="Play"><span class="glyphicon glyphicon-play-circle"></span></button>
+    </form>
 
-    <span>
-        <form action="/pause" method="post" target="iframe">
-            <button class="btn btn-primary" type="submit" value="Pause"><span class="glyphicon glyphicon-pause"></span></button>
-        </form>
-    </span>
+    <form action="/pause" method="post" target="iframe" style="float: left">
+        <button class="btn btn-primary" type="submit" value="Pause"><span class="glyphicon glyphicon-pause"></span></button>
+    </form>
 
     <form action="/volUp" method="post" target="iframe">
         <button class="btn btn-primary" type="submit" value="+"><span class="glyphicon glyphicon-volume-up"></span></button>
