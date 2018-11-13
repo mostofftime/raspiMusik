@@ -26,11 +26,11 @@
     </form>
 
     <ul>
-        
+        <% songs.forEach(function(song) { %>
         <li>
-            
+            <%= song.title %>
         </li>
-        
+        <% }); %>
     </ul>
 
 </body>

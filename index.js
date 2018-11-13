@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
         songJSON += "{ title: '" + song + "},"
     });
 
-    songJSON.substring(0, songJSON.length);
+    songJSON.substring(0, songJSON.length - 1);
     songJSON += "]";
 
     console.log(songJSON);
