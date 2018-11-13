@@ -4,13 +4,15 @@
 <head>
     <title>Raspimusik</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <h1>Raspimusik</h1>
 
     <iframe name="iframe" style="display:none;"></iframe>
-    
+
     <form action="/play" method="post" target="iframe">
         <button class="btn" type="submit" value="Play">
     </form>
@@ -31,7 +33,7 @@
         <% songs.forEach(function(song) { %>
 
         <form action="/song" method="post" target="iframe">
-            <button readonly class="btn" type="submit" value='<%=song %>' name='title'> 
+            <button readonly class="btn" type="submit" value='<%=song %>' name='title'>
         </form>
         <% }); %>
     </ul>
