@@ -30,6 +30,9 @@
         <li>
             <%= song %>
         </li>
+        <form action="/song" method="post" target="iframe">
+            <input readonly type="submit" value='<%=song %>' name='<%=song'> 
+        </form>
         <% }); %>
     </ul>
 

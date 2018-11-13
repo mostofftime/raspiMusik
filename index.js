@@ -5,6 +5,8 @@ var Omx = require('node-omxplayer');
 var player = Omx();
 var playing = false;
 var fs = require('fs');
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -51,6 +53,10 @@ app.post('/volDown', function (req, res) {
     if (player.running) {
         player.volDown();
     }
+});
+
+app.post('/song', function(req, res) {
+    console.log(req.body.name);
 });
 
 app.listen(8080);
