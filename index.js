@@ -14,9 +14,11 @@ app.set('view engine', 'ejs');
 var songs = [];
 var mediaDir = "/media/Musik/";
 
-fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
-    songs.push(file);
-})
+fs.readdirSync("./media").filter(file => file.endsWith(".mp3"))
+.forEach(file => file.substring(0, file.length - 4))    
+.forEach(file => {
+        songs.push(file);
+    })
 
 var currentSong = songs[0];
 
@@ -24,7 +26,7 @@ var currentSong = songs[0];
 app.get('/', function (req, res) {
 
     res.render('index', {
-        songs : songs
+        songs: songs
     });
 });
 
@@ -58,11 +60,9 @@ app.post('/volDown', function (req, res) {
     }
 });
 
-app.post('/song', function(req, res) {
-    console.log(req.body.title);
-    console.log(player.running);
-    player.newSource(mediaDir + req.body.title, "local", false, 5);
-    console.log(player.running);
+app.post('/song', function (req, res) {
+    console.log("playing: " + req.body.title);
+    player.newSource(mediaDir + req.body.title + ".mp3", "local", false, 5);
 });
 
 app.listen(8080);
