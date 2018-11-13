@@ -10,15 +10,17 @@
     <div class="col-md-2">
         <h1>Raspimusik</h1>
 
-        <iframe name="iframe" style="display:none;"></iframe>
+        <iframe name="iframe" style="display:none; "></iframe>
+        <div style="align-content: center">
+            <form action="/play" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
+            </form>
 
-        <form action="/play" method="post" target="iframe" style="float: left">
-            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
-        </form>
-
-        <form action="/pause" method="post" target="iframe">
-            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
-        </form>
+            <form action="/pause" method="post" target="iframe">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
+            </form>
+        </div>
+        <br>
 
         <form action="/volDown" method="post" target="iframe" style="float: left">
             <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
@@ -32,7 +34,8 @@
             <% songs.forEach(function(song) { %>
 
             <form action="/song" method="post" target="iframe">
-                <button readonly class="btn btn-secondary" type="submit" value='<%=song %>' name='title'><%=song %></button>
+                <button readonly class="btn btn-secondary" type="submit" value='<%=song %>' name='title'>
+                    <%=song %></button>
             </form>
             <% }); %>
         </ul>
