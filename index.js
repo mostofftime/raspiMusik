@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 var songs = [];
+var mediaDir = "/media/Musik";
+var currentSong = songs[0];
 
 fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
     songs.push(file);
@@ -28,7 +30,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource("/media/Musik/" + songs[3], "local", false, 5);
+            player.newSource(mediaDir + currentSong, "local", false, 5);
         } else {
             player.play();
         }
