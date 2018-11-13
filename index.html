@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Raspimusik</title>
-   </head>
-   
-   <body>
-        <h1>Raspimusik</h1>  
 
-        <button>Play</button>
+<head>
+    <title>Raspimusik</title>
+</head>
 
-   </body>
+<body>
+    <h1>Raspimusik</h1>
+
+    <iframe name="votar" style="display:none;"></iframe>
+    <form action="192.168.0.69/play" method="post" target="iframe">
+        <input type="submit" value="Play">
+    </form>
+
+</body>
+
 </html>
