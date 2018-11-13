@@ -8,7 +8,7 @@ var fs = require('fs');
 
 var songs;
 
-fs.readdirSync("./media").forEach(file => {
+fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
     console.log(file);
 })
 
