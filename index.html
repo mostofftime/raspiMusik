@@ -8,9 +8,21 @@
 <body>
     <h1>Raspimusik</h1>
 
-    <iframe name="votar" style="display:none;"></iframe>
+    <iframe name="iframe" style="display:none;"></iframe>
     <form action="/play" method="post" target="iframe">
         <input type="submit" value="Play">
+    </form>
+
+    <form action="/pause" method="post" target="iframe">
+        <input type="submit" value="Pause">
+    </form>
+
+    <form action="/volUp" method="post" target="iframe">
+        <input type="submit" value="+">
+    </form>
+
+    <form action="/volDown" method="post" target="iframe">
+        <input type="submit" value="-">
     </form>
 
 </body>
