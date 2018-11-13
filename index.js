@@ -6,6 +6,9 @@ var player = Omx();
 var playing = false;
 var fs = require('fs');
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
 var songs = [];
 
 fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
@@ -14,7 +17,10 @@ fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => 
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    
+    res.render('index', JSON.stringify(songs));
+    
+    //res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/play', function (req, res) {

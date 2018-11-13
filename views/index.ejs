@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Raspimusik</title>
+</head>
+
+<body>
+    <h1>Raspimusik</h1>
+
+    <iframe name="iframe" style="display:none;"></iframe>
+    <form action="/play" method="post" target="iframe">
+        <input type="submit" value="Play">
+    </form>
+
+    <form action="/pause" method="post" target="iframe">
+        <input type="submit" value="Pause">
+    </form>
+
+    <form action="/volUp" method="post" target="iframe">
+        <input type="submit" value="+">
+    </form>
+
+    <form action="/volDown" method="post" target="iframe">
+        <input type="submit" value="-">
+    </form>
+
+    <ul>
+        <% songs.forEach(function(song) { %>
+        <li>
+            <%= song %>
+        </li>
+        <% }); %>
+    </ul>
+
+</body>
+
+</html>
