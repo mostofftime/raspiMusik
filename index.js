@@ -18,9 +18,8 @@ fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
     
-    res.render('index', JSON.stringify(songs));
+    res.render('index');//, JSON.stringify(songs));
     
-    //res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/play', function (req, res) {
