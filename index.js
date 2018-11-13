@@ -4,18 +4,23 @@ var path = require('path');
 var Omx = require('node-omxplayer');
 var player = Omx();
 var playing = false;
+var fs = require('fs');
+
+var songs;
+
+fs.readdirSync("./media").forEach(file => {
+    console.log(file);
+})
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
-    //console.log(path.join(__dirname + '/index.html'));
-    //res.send("Hello world!");
 });
 
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource("/media/Musik/10 - Twenty One Pilots - Guns For Hands.mp3");
+            player.newSource("/media/Musik/12 - Twenty One Pilots - Trees.mp3", "local", false, 10);
         } else {
             player.play();
         }
@@ -27,16 +32,17 @@ app.post('/pause', function (req, res) {
     if (playing) {
         player.pause();
     }
+    playing = false;
 });
 
 app.post('/volUp', function (req, res) {
-    if(player.running){
+    if (player.running) {
         player.volUp();
     }
 });
 
 app.post('/volDown', function (req, res) {
-    if(player.running){
+    if (player.running) {
         player.volDown();
     }
 });
