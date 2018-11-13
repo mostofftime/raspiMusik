@@ -60,6 +60,7 @@ app.post('/song', function(req, res) {
     console.log(player.running);
     player.newSource("/media/Musik" + req.body.title, "local", false, 5);
     console.log(player.running);
+    playing = false;
 });
 
 app.listen(8080);
