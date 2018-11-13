@@ -14,9 +14,10 @@ app.set('view engine', 'ejs');
 var songs = [];
 var mediaDir = "/media/Musik/";
 
-fs.readdirSync("./media").filter(file => file.endsWith(".mp3"))
-.forEach(file => file.substring(0, file.length - 4))    
-.forEach(file => {
+fs.readdirSync("./media")
+    .filter(file => file.endsWith(".mp3"))
+    .map(file => file.substring(0, file.length - 4))
+    .forEach(file => {
         songs.push(file);
     })
 
