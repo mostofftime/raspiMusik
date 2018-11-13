@@ -13,11 +13,12 @@ app.set('view engine', 'ejs');
 
 var songs = [];
 var mediaDir = "/media/Musik";
-var currentSong = songs[0];
 
 fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
     songs.push(file);
 })
+
+var currentSong = songs[0];
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
