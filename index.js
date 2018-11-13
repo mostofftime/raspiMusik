@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 var songs = [];
-var mediaDir = "/media/Musik";
+var mediaDir = "/media/Musik/";
 
 fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
     songs.push(file);
