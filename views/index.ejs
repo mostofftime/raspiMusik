@@ -13,20 +13,22 @@
         <iframe name="iframe" style="display:none;"></iframe>
 
         <form class="form-group" action="/play" method="post" target="iframe" style="float: left">
-            <button class="btn btn-primary" type="submit" value="Play"><span class="glyphicon glyphicon-play-circle"></span></button>
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
         </form>
 
         <form action="/pause" method="post" target="iframe">
-            <button class="btn btn-primary" type="submit" value="Pause"><span class="glyphicon glyphicon-pause"></span></button>
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
         </form>
 
-        <form action="/volUp" method="post" target="iframe" style="float: left">
-            <button class="btn btn-primary" type="submit" value="+"><span class="glyphicon glyphicon-volume-up"></span></button>
+        <form action="/volDown" method="post" target="iframe" style="float: left">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
         </form>
 
-        <form action="/volDown" method="post" target="iframe">
-            <button class="btn btn-primary" type="submit" value="-"><span class="glyphicon glyphicon-volume-down"></span></button>
+        <form action="/volUp" method="post" target="iframe">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
         </form>
+
+        
 
         <ul>
             <% songs.forEach(function(song) { %>
