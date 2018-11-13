@@ -14,26 +14,26 @@
     <button class="btn">a</button>
 
     <form class="form-group" action="/play" method="post" target="iframe">
-        <button class="btn btn-primary" type="submit" value="Play">Play</button>
+        <button class="btn btn-primary" type="submit" value="Play"><span class="glyphicon glyphicon-play-circle"></span></button>
     </form>
 
     <form action="/pause" method="post" target="iframe">
-        <button type="submit" value="Pause">
+        <button class="btn btn-primary" type="submit" value="Pause"><span class="glyphicon glyphicon-pause"></span></button>
     </form>
 
     <form action="/volUp" method="post" target="iframe">
-        <button type="submit" value="+">
+        <button class="btn btn-primary" type="submit" value="+"></button>
     </form>
 
     <form action="/volDown" method="post" target="iframe">
-        <button type="submit" value="-">
+        <button class="btn btn-primary" type="submit" value="-"></button>
     </form>
 
     <ul>
         <% songs.forEach(function(song) { %>
 
         <form action="/song" method="post" target="iframe">
-            <button readonly class="btn" type="submit" value='<%=song %>' name='title'>
+            <button readonly class="btn btn-primary" type="submit" value='<%=song %>' name='title'></button>
         </form>
         <% }); %>
     </ul>
