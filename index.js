@@ -18,12 +18,18 @@ fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
     
-console.log({
-    songs : JSON.stringify(songs)
-})
+    var songJSON = "[";
+    songs.forEach(song => {
+        songJSON += "{ title: '" + song + "},"
+    });
+
+    songJSON.substring(0, songJSON.length);
+    songJSON += "]";
+
+    console.log(songJSON);
 
     res.render('index', {
-       songs :  JSON.stringify(songs)
+       songs :  songJSON
     });
 });
 
