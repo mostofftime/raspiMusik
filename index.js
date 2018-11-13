@@ -64,6 +64,7 @@ app.post('/volDown', function (req, res) {
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
     player.newSource(mediaDir + req.body.title + ".mp3", "local", false, 5);
+    playing = true;
 });
 
 app.listen(8080);
