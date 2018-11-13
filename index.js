@@ -6,10 +6,10 @@ var player = Omx();
 var playing = false;
 var fs = require('fs');
 
-var songs;
+var songs = [];
 
 fs.readdirSync("./media").filter(file => file.endsWith(".mp3")).forEach(file => {
-    console.log(file);
+    songs.push(file);
 })
 
 // viewed at http://localhost:8080
@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource("/media/Musik/12 - Twenty One Pilots - Trees.mp3", "local", false, 10);
+            player.newSource("/media/Musik/" + songs[3], "local", false, 10);
         } else {
             player.play();
         }
