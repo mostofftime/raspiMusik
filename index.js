@@ -98,11 +98,13 @@ app.post('/next', function (req, res) {
 });
 
 app.post('/previous', function (req, res) {
-    player.newSource(mediaDir + songs[songHistory.pop] + ".mp3", "local", false, volume);
-    playing = true;
+    if (songHistory.pop.length > 0) {
+        player.newSource(mediaDir + songs[songHistory.pop] + ".mp3", "local", false, volume);
+        playing = true;
+    }
 });
 
-function setNewSong(){
+function setNewSong() {
     currentSongIndex = Math.round(Math.random() * songs.length);
     player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
     songHistory.push(currentSongIndex);
