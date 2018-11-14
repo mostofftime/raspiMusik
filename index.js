@@ -23,7 +23,7 @@ fs.readdirSync(mediaDir)
     })
 
 setInterval(function () {
-    console.log(playing);
+    console.log(player.running);
 }, 1000);
 
 var currentSong = songs[currentSongIndex];
