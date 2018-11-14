@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 var songs = [];
 var mediaDir = "media/Musik/";
 var currentSongIndex = 0;
+var volume = 5;
 
 fs.readdirSync(mediaDir)
     .filter(file => file.endsWith(".mp3"))
@@ -23,10 +24,11 @@ fs.readdirSync(mediaDir)
     })
 
 setInterval(function () {
-    console.log(player.running);
+    if(playing && !player.running){
+        currentSongIndex = Math.random() * songs.length;
+        player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
+    }
 }, 1000);
-
-var currentSong = songs[currentSongIndex];
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
@@ -38,7 +40,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource(mediaDir + currentSong + ".mp3", "local", false, 5);
+            player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
         } else {
             player.play();
         }
@@ -67,7 +69,7 @@ app.post('/volDown', function (req, res) {
 
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
-    player.newSource(mediaDir + req.body.title + ".mp3", "local", false, 5);
+    player.newSource(mediaDir + req.body.title + ".mp3", "local", false, volume);
     playing = true;
 });
 
