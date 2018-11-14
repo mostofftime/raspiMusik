@@ -25,7 +25,9 @@ fs.readdirSync(mediaDir)
 
 setInterval(function () {
     if(playing && !player.running){
+        console.log(songs);
         currentSongIndex = Math.random() * songs.length;
+        console.log(currentSongIndex);
         player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
     }
 }, 1000);
