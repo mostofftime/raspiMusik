@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 
 var songs = [];
 var mediaDir = "media/Musik/";
+var currentSongIndex = 0;
 
 fs.readdirSync(mediaDir)
     .filter(file => file.endsWith(".mp3"))
@@ -21,11 +22,14 @@ fs.readdirSync(mediaDir)
         songs.push(file);
     })
 
-var currentSong = songs[0];
+window.setInterval(function () {
+    console.log(playing);
+}, 1000);
+
+var currentSong = songs[currentSongIndex];
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
-
     res.render('index', {
         songs: songs
     });
