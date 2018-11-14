@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 var songs = [];
 var mediaDir = "media/Musik/";
 var currentSongIndex = 0;
+var songHistory = [];
 var volume = 5;
 
 fs.readdirSync(mediaDir)
@@ -24,11 +25,8 @@ fs.readdirSync(mediaDir)
     })
 
 setInterval(function () {
-    if(playing && !player.running){
-        console.log(songs);
-        currentSongIndex = Math.round(Math.random() * songs.length);
-        console.log(currentSongIndex);
-        player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
+    if (playing && !player.running) {
+        setNewSong();
     }
 }, 1000);
 
@@ -43,6 +41,7 @@ app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
             player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
+            songHistory.push(currentSongIndex);
         } else {
             console.log("start playing");
             player.play();
@@ -79,9 +78,35 @@ app.post('/song', function (req, res) {
     playing = true;
 });
 
-app.post('/fwd30', function(req, res){
-    console.log("30 seconds forward");
-    player.fwd30();
+app.post('/fwd30', function (req, res) {
+    if (player.running) {
+        console.log("30 seconds forwards");
+        player.fwd30();
+    }
 });
+
+app.post('/back30', function (req, res) {
+    if (player.running) {
+        console.log("30 seconds backwards");
+        player.back30();
+    }
+
+});
+
+app.post('/next', function (req, res) {
+    setNewSong();
+});
+
+app.post('/previous', function (req, res) {
+    player.newSource(mediaDir + songs[songHistory.pop] + ".mp3", "local", false, volume);
+    playing = true;
+});
+
+function setNewSong(){
+    currentSongIndex = Math.round(Math.random() * songs.length);
+    player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
+    songHistory.push(currentSongIndex);
+    playing = true;
+}
 
 app.listen(8080);
