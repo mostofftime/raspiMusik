@@ -7,54 +7,52 @@
 </head>
 
 <body>
-    <div style="min-height: 100vh; overflow: hidden; display: block; position: relative; padding-bottom: 100px;">
-        <div style="margin: 0 auto">
-            <h1>Raspimusik</h1>
-        </div>
-        <iframe name="iframe" style="display:none; "></iframe>
-
-        <br>
-        <div style="margin: 0 auto; width: 80px">
-            <form action="/volDown" method="post" target="iframe" style="float: left">
-                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
-            </form>
-
-            <form action="/volUp" method="post" target="iframe">
-                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
-            </form>
-        </div>
-        <ul>
-            <% songs.forEach(function(song) { %>
-            <form action="/song" method="post" target="iframe">
-                <button readonly class="btn btn-secondary" type="submit" value='<%=song %>' name='title'>
-                    <%=song %></button>
-            </form>
-            <% }); %>
-        </ul>
-
-        <footer class="page-footer" style="position: absolute;">
-            <div style="margin: 0 auto; width: 240px">
-                <form action="/previous" method="post" target="iframe" style="float: left">
-                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
-                </form>
-                <form action="/back30" method="post" target="iframe" style="float: left">
-                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-backward"></span></button>
-                </form>
-                <form action="/play" method="post" target="iframe" style="float: left">
-                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
-                </form>
-                <form action="/pause" method="post" target="iframe" style="float: left">
-                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
-                </form>
-                <form action="/fwd30" method="post" target="iframe" style="float: left">
-                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
-                </form>
-                <form action="/next" method="post" target="iframe">
-                    <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
-                </form>
-            </div>
-        </footer>
+    <div style="margin: 0 auto">
+        <h1>Raspimusik</h1>
     </div>
+    <iframe name="iframe" style="display:none; "></iframe>
+
+    <br>
+    <div style="margin: 0 auto; width: 80px">
+        <form action="/volDown" method="post" target="iframe" style="float: left">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
+        </form>
+
+        <form action="/volUp" method="post" target="iframe">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
+        </form>
+    </div>
+    <ul>
+        <% songs.forEach(function(song) { %>
+        <form action="/song" method="post" target="iframe">
+            <button readonly class="btn btn-secondary" type="submit" value='<%=song %>' name='title'>
+                <%=song %></button>
+        </form>
+        <% }); %>
+    </ul>
+
+    <footer class="page-footer">
+        <div style="margin: 0 auto; width: 240px">
+            <form action="/previous" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
+            </form>
+            <form action="/back30" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-backward"></span></button>
+            </form>
+            <form action="/play" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
+            </form>
+            <form action="/pause" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
+            </form>
+            <form action="/fwd30" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
+            </form>
+            <form action="/next" method="post" target="iframe">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
+            </form>
+        </div>
+    </footer>
 </body>
 
 </html>
