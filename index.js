@@ -22,7 +22,7 @@ fs.readdirSync(mediaDir)
         songs.push(file);
     })
 
-window.setInterval(function () {
+setInterval(function () {
     console.log(playing);
 }, 1000);
 
