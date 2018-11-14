@@ -11,15 +11,13 @@
         <h1>Raspimusik</h1>
 
         <iframe name="iframe" style="display:none; "></iframe>
-        <div class="col-4 mx-auto">
-            <form action="/play" method="post" target="iframe" style="float: left">
-                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
-            </form>
+        <form action="/play" method="post" target="iframe" style="float: left">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
+        </form>
 
-            <form action="/pause" method="post" target="iframe">
-                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
-            </form>
-        </div>
+        <form action="/pause" method="post" target="iframe">
+            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
+        </form>
         <br>
 
         <form action="/volDown" method="post" target="iframe" style="float: left">
