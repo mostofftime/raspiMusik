@@ -50,7 +50,7 @@ function sorting() {
     });
     
     songDetails.forEach(detail => {
-        console.log(detail + "   " + songMap.get(detail));
+        console.log(detail + "   " + songMap.get(detail).title);
     });
     
     songDetails.sort(function (a, b) {
