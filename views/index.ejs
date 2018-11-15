@@ -4,6 +4,7 @@
 <head>
     <title>Raspimusik</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -52,11 +53,14 @@
             <% songs.forEach(function(song, index) { %>
             <li>
                 <form action="/song" method="post" target="iframe">
-                    <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: white; border-radius: 0px"
+                    <button readonly class="btn btn-secondary song-button"
                         type="submit" value='<%=song %>' name='title'>
-                        <span style="max-width: 200px; min-width: 200px; width: 200px; display:block; float: left;">
-                            <%=songDetails[index].title %></span> <span>
-                            <%=songDetails[index].album %></span></button>
+                        <span class="song-button-span">
+                            <%=songDetails[index].title %>
+                        </span>
+                        <span class="song-button-span">
+                            <%=songDetails[index].album %></span>
+                    </button>
                 </form>
             </li>
             <% }); %>

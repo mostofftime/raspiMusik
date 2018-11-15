@@ -4,14 +4,12 @@ var path = require('path');
 var Omx = require('node-omxplayer');
 var id3 = require('id3js')
 
-
 var player = Omx();
 var playing = false;
 var fs = require('fs');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// set the view engine to ejs
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 var songs = [];
@@ -29,7 +27,7 @@ fs.readdirSync(mediaDir)
         songs.push(file);
     });
 
-//gets song details from songs in songs[]
+//initialize songs and songdetails, sorting them with sort()
 var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function(song, index) {
@@ -37,15 +35,12 @@ songs.forEach(function(song, index) {
         songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
-            sorting();
+            sort();
         }
     });
 });
 
-
-
-function sorting() {
-
+function sort() {
     var songMap = new Map();
     songs.forEach(function (song) {
         songMap.set(songDetails[songs.indexOf(song)], song);
@@ -62,13 +57,11 @@ function sorting() {
     });
 
     songs = [];
-
     songDetails.forEach(
         function (detail, index) {
             songs.push(songMap.get(detail));
         }
     );
-
 }
 
 songDetails.forEach(detail => console.log(detail.title));
@@ -79,7 +72,8 @@ setInterval(function () {
     }
 }, 1000);
 
-// viewed at http://localhost:8080
+//******************
+//routing
 app.get('/', function (req, res) {
     res.render('index', {
         songs: songs,
