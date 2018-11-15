@@ -1,0 +1,17 @@
+.song-button-span{
+    max-width: 200px; 
+    min-width: 200px; 
+    width: 200px; 
+    display:block; 
+    float: left;
+}
+
+.song-button{
+    width: 100%; 
+    text-align: left;
+    border-style: hidden;
+    border-bottom-style: solid; 
+    border-width: 1px; 
+    border-color: white; 
+    border-radius: 0px
+}
