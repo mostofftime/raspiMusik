@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var Omx = require('node-omxplayer');
+var id3 = require('id3js')
+
+
 var player = Omx();
 var playing = false;
 var fs = require('fs');
