@@ -33,6 +33,7 @@ fs.readdirSync(mediaDir)
 var asyncCounter = 0;
 songs.forEach(song => {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
+        console.log(song + "  " + tags.title);
         songDetails.push(tags);
         asyncCounter++;
         if (asyncCounter === songs.length) {
