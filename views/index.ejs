@@ -48,13 +48,19 @@
     </div>
 
     <div style="margin-right: 10%; margin-left: 10%">
-        <% songs.forEach(function(song, index) { %>
-        <form action="/song" method="post" target="iframe">
-            <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: white; border-radius: 0px"
-                type="submit" value='<%=song %>' name='title'>
-                <span style="max-width: 100px; min-width: 100px; width: 100px; display:block; float: left;"><%=songDetails[index].title %></span> <span><%=songDetails[index].album %></span></button>
-        </form>
-        <% }); %>
+        <ul>
+            <% songs.forEach(function(song, index) { %>
+            <li>
+                <form action="/song" method="post" target="iframe">
+                    <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: white; border-radius: 0px"
+                        type="submit" value='<%=song %>' name='title'>
+                        <span style="max-width: 200px; min-width: 200px; width: 200px; display:block; float: left;">
+                            <%=songDetails[index].title %></span> <span>
+                            <%=songDetails[index].album %></span></button>
+                </form>
+            </li>
+            <% }); %>
+        </ul>
     </div>
 
 </body>
