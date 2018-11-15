@@ -44,6 +44,7 @@ songs.forEach(song => {
 function sorting() {
 
     var songMap = new Map();
+    console.log(songMap);
     songs.forEach(function(song, index){
         songMap.set(songDetails[index], song);
     });
