@@ -46,14 +46,13 @@
             <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
         </form>
     </div>
-    <ul>
-        <% songs.forEach(function(song) { %>
-        <form action="/song" method="post" target="iframe">
-            <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: black" type="submit" value='<%=song %>' name='title'>
-                <%=song %></button>
-        </form>
-        <% }); %>
-    </ul>
+    <% songs.forEach(function(song) { %>
+    <form action="/song" method="post" target="iframe">
+        <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: black"
+            type="submit" value='<%=song %>' name='title'>
+            <%=song %></button>
+    </form>
+    <% }); %>
 
 </body>
 
