@@ -49,7 +49,7 @@
     <ul>
         <% songs.forEach(function(song) { %>
         <form action="/song" method="post" target="iframe">
-            <button readonly class="btn btn-secondary" style="width=100%" type="submit" value='<%=song %>' name='title'>
+            <button readonly class="btn btn-secondary" style="width: 100%" type="submit" value='<%=song %>' name='title'>
                 <%=song %></button>
         </form>
         <% }); %>
