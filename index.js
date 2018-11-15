@@ -43,6 +43,8 @@ songs.forEach(song => {
 
 function sorting() {
 
+    await wait(2000);
+
     var songMap = new Map();
 
     console.log(songs);
