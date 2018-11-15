@@ -30,30 +30,26 @@
         </form>
         <% }); %>
     </ul>
-    <div style="bottom: 0; width: 100%; position: absolute; height: 60px">
-        <div class="container">
-            <div class="card-footer">
-                <div style="margin: 0 auto; width: 240px">
-                    <form action="/previous" method="post" target="iframe" style="float: left">
-                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
-                    </form>
-                    <form action="/back30" method="post" target="iframe" style="float: left">
-                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-backward"></span></button>
-                    </form>
-                    <form action="/play" method="post" target="iframe" style="float: left">
-                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
-                    </form>
-                    <form action="/pause" method="post" target="iframe" style="float: left">
-                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
-                    </form>
-                    <form action="/fwd30" method="post" target="iframe" style="float: left">
-                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
-                    </form>
-                    <form action="/next" method="post" target="iframe">
-                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
-                    </form>
-                </div>
-            </div>
+    <div class="navbar">
+        <div style="margin: 0 auto; width: 240px">
+            <form action="/previous" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
+            </form>
+            <form action="/back30" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-backward"></span></button>
+            </form>
+            <form action="/play" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
+            </form>
+            <form action="/pause" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
+            </form>
+            <form action="/fwd30" method="post" target="iframe" style="float: left">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
+            </form>
+            <form action="/next" method="post" target="iframe">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
+            </form>
         </div>
     </div>
 </body>
