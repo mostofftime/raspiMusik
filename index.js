@@ -45,10 +45,10 @@ function sorting() {
 
     songs.sort(function (a, b) {
         console.log(songDetails[0]);
-        if (songDetails[songs.indexOf(a)].title < songDetails[songs.indexOf(b)].title) {
+        if (songDetails[songs.indexOf(a)].title < songDetails[songs.indexOf(a)].title) {
             return 1;
         }
-        if (songDetails[songs.indexOf(a)].title > songDetails[songs.indexOf(b)].title) {
+        if (songDetails[songs.indexOf(a)].title > songDetails[songs.indexOf(a)].title) {
             return -1;
         }
         return 0;
