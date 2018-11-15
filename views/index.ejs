@@ -52,7 +52,7 @@
         <form action="/song" method="post" target="iframe">
             <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: white; border-radius: 0px"
                 type="submit" value='<%=song %>' name='title'>
-                <span style="display: inline-block;"><%=songDetails[index].title %></span><span> <%=songDetails[index].album %></span></button>
+                <span style="max-width: 200px; min-width: 200px; width: 200px; padding-left: 20px"><%=songDetails[index].title %></span> <span><%=songDetails[index].album %></span></button>
         </form>
         <% }); %>
     </div>
