@@ -36,7 +36,7 @@ setInterval(function () {
 }, 1000);
 
 songs.forEach(song => {
-    id3({ file: mediaDir + songs[currentSongIndex] + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
+    id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
         songDetails.push(tags);
     });
 });
