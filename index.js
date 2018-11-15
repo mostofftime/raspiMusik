@@ -37,13 +37,14 @@ songs.forEach(song => {
         asyncCounter++;
         if(asyncCounter === songs.length){
             //sorting();
+            console.log(songDetails.forEach(function(detail, index) {
+                console.log(songDetails[index].title + "   " + songs[index]);
+            }));
         }
     });
 });
 
-console.log(songDetails.forEach(function(detail, index) {
-    console.log(songDetails[index].title + "   " + songs[index]);
-}));
+
 
 function sorting() {
 
