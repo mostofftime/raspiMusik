@@ -52,9 +52,7 @@
         <form action="/song" method="post" target="iframe">
             <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: white; border-radius: 0px"
                 type="submit" value='<%=song %>' name='title'>
-                <%=song %> <%=id3({ file: mediaDir + songs[currentSongIndex] + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
-                    return tags;
-                }); %></button>
+                <%=song %> </button>
         </form>
         <% }); %>
     </div>

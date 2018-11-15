@@ -19,7 +19,7 @@ var mediaDir = "media/Musik/";
 var currentSongIndex = 0;
 var songHistory = [];
 var volume = 5;
-
+var songDetails = [];
 
 
 fs.readdirSync(mediaDir)
@@ -35,8 +35,10 @@ setInterval(function () {
     }
 }, 1000);
 
-id3({ file: mediaDir + songs[currentSongIndex] + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
-    console.log(tags);
+songs.forEach(song => {
+    id3({ file: mediaDir + songs[currentSongIndex] + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
+        console.log(tags);
+    });
 });
 
 // viewed at http://localhost:8080
