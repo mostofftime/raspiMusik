@@ -21,7 +21,7 @@ var songHistory = [];
 var volume = 5;
 var songDetails = [];
 
-
+//gets song file names from mediaDir
 fs.readdirSync(mediaDir)
     .filter(file => file.endsWith(".mp3"))
     .map(file => file.substring(0, file.length - 4))
@@ -29,17 +29,45 @@ fs.readdirSync(mediaDir)
         songs.push(file);
     });
 
-setInterval(function () {
-    if (playing && !player.running) {
-        setNewSong();
-    }
-}, 1000);
-
+//gets song details from songs in songs[]
 songs.forEach(song => {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails.push(tags);
     });
 });
+
+songs.sort(function (a, b) {
+    if (songDetails[songs.indexOf(a)].title.toUpperCase() < songDetails[songs.indexOf(a)].title.toUpperCase()) {
+        return 1;
+    }
+
+    if (songDetails[songs.indexOf(a)].title.toUpperCase() > songDetails[songs.indexOf(a)].title.toUpperCase()) {
+        return -1;
+    }
+
+    return 0;
+
+});
+
+songDetails.sort(function (a, b) {
+    if (a.title < b.title) {
+        return 1;
+    }
+
+    if (a.title > b.title) {
+        return -1;
+    }
+
+    return 0;
+});
+
+songDetails.forEach(detail => console.log(detail.title));
+
+setInterval(function () {
+    if (playing && !player.running) {
+        setNewSong();
+    }
+}, 1000);
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
@@ -102,7 +130,6 @@ app.post('/back30', function (req, res) {
         console.log("30 seconds backwards");
         player.back30();
     }
-
 });
 
 app.post('/next', function (req, res) {
