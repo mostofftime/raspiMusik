@@ -30,39 +30,40 @@ fs.readdirSync(mediaDir)
     });
 
 //gets song details from songs in songs[]
+var asyncCountner = 0;
 songs.forEach(song => {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails.push(tags);
+        asyncCountner++;
+        if(asyncCountner === songs.length){
+            sorting();
+        }
     });
 });
 
-songs.sort(function (a, b) {
+function sorting() {
+    songs.sort(function (a, b) {
 
-    console.log(songDetails[0]);
+        console.log(songDetails[0]);
+        if (songDetails[songs.indexOf(a)].title < songDetails[songs.indexOf(a)].title) {
+            return 1;
+        }
+        if (songDetails[songs.indexOf(a)].title > songDetails[songs.indexOf(a)].title) {
+            return -1;
+        }
+        return 0;
+    });
 
-    if (songDetails[songs.indexOf(a)].title < songDetails[songs.indexOf(a)].title) {
-        return 1;
-    }
-
-    if (songDetails[songs.indexOf(a)].title > songDetails[songs.indexOf(a)].title) {
-        return -1;
-    }
-
-    return 0;
-
-});
-
-songDetails.sort(function (a, b) {
-    if (a.title < b.title) {
-        return 1;
-    }
-
-    if (a.title > b.title) {
-        return -1;
-    }
-
-    return 0;
-});
+    songDetails.sort(function (a, b) {
+        if (a.title < b.title) {
+            return 1;
+        }
+        if (a.title > b.title) {
+            return -1;
+        }
+        return 0;
+    });
+}
 
 songDetails.forEach(detail => console.log(detail.title));
 
