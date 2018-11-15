@@ -31,11 +31,10 @@ fs.readdirSync(mediaDir)
 
 //gets song details from songs in songs[]
 var asyncCounter = 0;
-songs.forEach(song => {
+songDetails.length = songs.length;
+songs.forEach(function(song, index) {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
-        console.log(song + "  " + tags.title);
-        songDetails.push(tags);
-        console.log(songDetails[songDetails.length - 1].title);
+        songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
             //sorting();
