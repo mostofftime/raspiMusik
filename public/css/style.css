@@ -1,9 +1,10 @@
 .song-button-span{
-    max-width: 200px; 
-    min-width: 200px; 
-    width: 200px; 
+    max-width: 100px; 
+    min-width: 100px; 
+    width: 100px; 
     display:block; 
     float: left;
+    overflow: hidden;
 }
 
 .song-button{
