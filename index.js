@@ -35,6 +35,7 @@ songs.forEach(song => {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
         console.log(song + "  " + tags.title);
         songDetails.push(tags);
+        console.log(songDetails[songDetails.length - 1].title);
         asyncCounter++;
         if (asyncCounter === songs.length) {
             //sorting();
