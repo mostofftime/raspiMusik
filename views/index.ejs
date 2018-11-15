@@ -48,11 +48,11 @@
     </div>
 
     <div style="margin-right: 10%; margin-left: 10%">
-        <% songs.forEach(function(song) { %>
+        <% songs.forEach(function(song, index) { %>
         <form action="/song" method="post" target="iframe">
             <button readonly class="btn btn-secondary" style="width: 100%; text-align: left; border-style: hidden;border-bottom-style: solid; border-width: 1px; border-color: white; border-radius: 0px"
                 type="submit" value='<%=song %>' name='title'>
-                <%=song %> </button>
+                <%=song %> <%=songDetails[index].album %></button>
         </form>
         <% }); %>
     </div>

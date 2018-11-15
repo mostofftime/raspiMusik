@@ -37,14 +37,15 @@ setInterval(function () {
 
 songs.forEach(song => {
     id3({ file: mediaDir + songs[currentSongIndex] + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
-        console.log(tags);
+        songDetails.push(tags);
     });
 });
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
     res.render('index', {
-        songs: songs
+        songs: songs,
+        songDetails: songDetails
     });
 });
 
