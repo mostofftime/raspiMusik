@@ -38,6 +38,8 @@ setInterval(function () {
 songs.forEach(song => {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
         console.log(song);
+        console.log(tags);
+        songDetails.push(tags);
     });
 });
 
