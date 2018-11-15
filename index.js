@@ -42,6 +42,8 @@ songs.forEach(song => {
             for (var i = 0; i < songs.length; i++) {
                 console.log(songDetails[i].title + "   " + songs[i]);
             }
+            console.log(songs);
+            console.log(songDetails);
         }
     });
 });
