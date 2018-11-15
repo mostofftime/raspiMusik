@@ -38,8 +38,9 @@ songs.forEach(function(song, index) {
         asyncCounter++;
         if (asyncCounter === songs.length) {
             //sorting();
-            console.log(songs);
-            console.log(songDetails);
+            for (var i = 0; i < songs.length; i++) {
+                console.log(songDetails[i].title + "   " + songs[i]);
+            }
         }
     });
 });
