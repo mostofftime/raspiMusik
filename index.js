@@ -29,6 +29,8 @@ fs.readdirSync(mediaDir)
         songs.push(file);
     });
 
+songs.sort();
+
 setInterval(function () {
     if (playing && !player.running) {
         setNewSong();
