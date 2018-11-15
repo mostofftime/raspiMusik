@@ -37,11 +37,11 @@ songs.forEach(song => {
 });
 
 songs.sort(function (a, b) {
-    if (songDetails[songs.indexOf(a)].title.toUpperCase() < songDetails[songs.indexOf(a)].title.toUpperCase()) {
+    if (songDetails[songs.indexOf(a)].title.toUpperCase() < songDetails[songs.indexOf(a)].title) {
         return 1;
     }
 
-    if (songDetails[songs.indexOf(a)].title.toUpperCase() > songDetails[songs.indexOf(a)].title.toUpperCase()) {
+    if (songDetails[songs.indexOf(a)].title.toUpperCase() > songDetails[songs.indexOf(a)].title) {
         return -1;
     }
 
