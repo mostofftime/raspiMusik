@@ -17,18 +17,24 @@ var currentSongIndex = 0;
 var songHistory = [];
 var volume = 5;
 
+
+
 fs.readdirSync(mediaDir)
     .filter(file => file.endsWith(".mp3"))
     .map(file => file.substring(0, file.length - 4))
     .forEach(file => {
         songs.push(file);
-    })
+    });
 
 setInterval(function () {
     if (playing && !player.running) {
         setNewSong();
     }
 }, 1000);
+
+id3({ file: mediaDir + songs[currentSongIndex] + ".mp3", type: id3.OPEN_LOCAL }, function(err, tags) {
+    console.log(tags);
+});
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
