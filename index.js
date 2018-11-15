@@ -48,7 +48,11 @@ function sorting() {
     songs.forEach(function(song, index){
         songMap.set(songDetails[index], song);
     });
-    console.log(songMap);
+    
+    songDetails.forEach(detail => {
+        console.log(detail + "   " + songMap.get(detail));
+    });
+    
     songDetails.sort(function (a, b) {
         if (a.title > b.title) {
             return 1;
