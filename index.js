@@ -35,11 +35,11 @@ songs.forEach(song => {
     id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails.push(tags);
         asyncCounter++;
-        if(asyncCounter === songs.length){
+        if (asyncCounter === songs.length) {
             //sorting();
-            console.log(songDetails.forEach(function(detail, index) {
-                console.log(songDetails[index].title + "   " + songs[index]);
-            }));
+            for (var i = 0; i < songs.length; i++) {
+                console.log(songDetails[i].title + "   " + songs[i]);
+            }
         }
     });
 });
@@ -52,15 +52,15 @@ function sorting() {
 
     console.log(songs);
     console.log(songDetails);
-    
-    songs.forEach(function(song){
+
+    songs.forEach(function (song) {
         songMap.set(songDetails[songs.indexOf(song)], song);
     });
-    
+
     songDetails.forEach(detail => {
         console.log(detail.title + "   " + songMap.get(detail));
     });
-    
+
     songDetails.sort(function (a, b) {
         if (a.title > b.title) {
             return 1;
@@ -74,7 +74,7 @@ function sorting() {
     songs = [];
 
     songDetails.forEach(
-        function(detail, index){
+        function (detail, index) {
             songs.push(songMap.get(detail));
         }
     );
