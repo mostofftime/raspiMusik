@@ -43,27 +43,29 @@ songs.forEach(song => {
 
 function sorting() {
 
-    songs.sort(function (a, b) {
-        console.log(songs.indexOf(a) + "   " + songs.indexOf(b));
-        console.log(songs.length);
-        if (songDetails[songs.indexOf(a)].title < songDetails[songs.indexOf(b)].title) {
+    var songMap = new Map();
+    songs.forEach(function(song, index){
+        songMap.set(songDetails[index], song);
+    });
+
+    songDetails.sort(function (a, b) {
+        if (a.title > b.title) {
             return 1;
         }
-        if (songDetails[songs.indexOf(a)].title > songDetails[songs.indexOf(b)].title) {
+        if (a.title < b.title) {
             return -1;
         }
         return 0;
     });
 
-    songDetails.sort(function (a, b) {
-        if (a.title < b.title) {
-            return 1;
+    songs = [];
+
+    songDetails.forEach(
+        function(detail, index){
+            songs.push(songMap.get(songDetails[index]));
         }
-        if (a.title > b.title) {
-            return -1;
-        }
-        return 0;
-    });
+    );
+
 }
 
 songDetails.forEach(detail => console.log(detail.title));
