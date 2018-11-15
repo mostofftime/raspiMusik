@@ -37,10 +37,7 @@ songs.forEach(function(song, index) {
         songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
-            //sorting();
-            for (var i = 0; i < songs.length; i++) {
-                console.log(songDetails[i].title + "   " + songs[i]);
-            }
+            sorting();
         }
     });
 });
@@ -50,16 +47,8 @@ songs.forEach(function(song, index) {
 function sorting() {
 
     var songMap = new Map();
-
-    console.log(songs);
-    console.log(songDetails);
-
     songs.forEach(function (song) {
         songMap.set(songDetails[songs.indexOf(song)], song);
-    });
-
-    songDetails.forEach(detail => {
-        console.log(detail.title + "   " + songMap.get(detail));
     });
 
     songDetails.sort(function (a, b) {
