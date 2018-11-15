@@ -38,7 +38,7 @@ songs.forEach(song => {
 
 songs.sort(function (a, b) {
 
-    console.log(songs[0]);
+    console.log(songDetails[0]);
 
     if (songDetails[songs.indexOf(a)].title < songDetails[songs.indexOf(a)].title) {
         return 1;
