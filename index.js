@@ -36,14 +36,16 @@ songs.forEach(song => {
         songDetails.push(tags);
         asyncCounter++;
         if(asyncCounter === songs.length){
-            sorting();
+            //sorting();
         }
     });
 });
 
-function sorting() {
+console.log(songDetails.forEach(function(detail, index) {
+    console.log(songDetails[index].title + "   " + songs[index]);
+}));
 
-    await wait(2000);
+function sorting() {
 
     var songMap = new Map();
 
