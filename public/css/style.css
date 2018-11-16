@@ -55,6 +55,8 @@
     height: 34px;
     padding-top: 0px;
     padding-bottom: 0px;
+    vertical-align: middle;
+    
 }
 
 .song-button{
