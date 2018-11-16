@@ -50,7 +50,7 @@
 
     <div style="margin-right: 10%; margin-left: 10%">
         <ul style="list-style-type: none;">
-            <li class="list-group-item">
+            <li class="list-group-item song-button">
                 <span class="song-button-span-250">
                     Titel
                 </span>
@@ -67,7 +67,7 @@
             <% songs.forEach(function(song, index) { %>
             <li>
                 <form action="/song" method="post" target="iframe">
-                    <button readonly class="btn btn-secondary song-button" type="submit" value='<%=song %>' name='title'>
+                    <button class="btn btn-secondary song-button" type="submit" value='<%=song %>' name='title'>
                         <span class="song-button-span-250">
                             <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                         </span>
