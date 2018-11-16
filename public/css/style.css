@@ -50,6 +50,8 @@
     border-width: 1px; 
     border-color: darkgray; 
     border-radius: 0px;
+    height: auto;
+    background-color: lightgrey;
 }
 
 .song-button{
