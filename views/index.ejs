@@ -50,6 +50,20 @@
 
     <div style="margin-right: 10%; margin-left: 10%">
         <ul style="list-style-type: none;">
+            <li class="list-group-item">
+                <span class="song-button-span-250">
+                    Titel
+                </span>
+                <span class="song-button-span-250 text-muted">
+                    Album
+                </span>
+                <span class="song-button-span-250 text-muted">
+                    Künstler
+                </span>
+                <span class="song-button-span-50 text-muted">
+                    Track
+                </span>
+            </li>
             <% songs.forEach(function(song, index) { %>
             <li>
                 <form action="/song" method="post" target="iframe">
