@@ -55,13 +55,13 @@
                 <form action="/song" method="post" target="iframe">
                     <button readonly class="btn btn-secondary song-button" type="submit" value='<%=song %>' name='title'>
                         <span class="song-button-span-250">
-                            <%=songDetails[index].title %>
+                            <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                         </span>
                         <span class="song-button-span-200">
-                            <%=songDetails[index].album %>
+                            <%=songDetails[index].album != null ? songDetails[index].album : "" %>
                         </span>
                         <span class="song-button-span-250">
-                            <%=songDetails[index].artists %>
+                            <%=songDetails[index].artists != null ? songDetails[index].artists : "" %>
                         </span>
                         <span>
                             <%=songDetails[index].v2.track != null ? songDetails[index].v2.track : songDetails.v1.track != null ? songDetails.v1.track : "" %>
