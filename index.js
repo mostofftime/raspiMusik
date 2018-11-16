@@ -72,8 +72,7 @@ setInterval(function () {
     }
 }, 1000);
 
-//******************
-//routing
+//******************routing************************
 app.get('/', function (req, res) {
     res.render('index', {
         songs: songs,
