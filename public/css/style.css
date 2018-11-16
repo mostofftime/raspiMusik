@@ -5,6 +5,7 @@
     display:block; 
     float: left;
     overflow: hidden;
+    text-align: left;
 }
 
 .song-button-span-200{
@@ -14,6 +15,7 @@
     display:block; 
     float: left;
     overflow: hidden;
+    text-align: left;
 }
 
 .song-button-span-150{
@@ -23,6 +25,7 @@
     display:block; 
     float: left;
     overflow: hidden;
+    text-align: left;
 }
 
 .song-button-span-100{
@@ -32,6 +35,7 @@
     display:block; 
     float: left;
     overflow: hidden;
+    text-align: left;
 }
 
 .song-button-span-50{
@@ -41,6 +45,7 @@
     display:block; 
     float: left;
     overflow: hidden;
+    text-align: left;
 }
 
 .song-button-header{
