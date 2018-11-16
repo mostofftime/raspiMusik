@@ -1,7 +1,43 @@
-.song-button-span{
+.song-button-span-250{
+    max-width: 250px; 
+    min-width: 250px; 
+    width: 250px; 
+    display:block; 
+    float: left;
+    overflow: hidden;
+}
+
+.song-button-span-200{
+    max-width: 200px; 
+    min-width: 200px; 
+    width: 200px; 
+    display:block; 
+    float: left;
+    overflow: hidden;
+}
+
+.song-button-span-150{
+    max-width: 150px; 
+    min-width: 150px; 
+    width: 150px; 
+    display:block; 
+    float: left;
+    overflow: hidden;
+}
+
+.song-button-span-100{
     max-width: 100px; 
     min-width: 100px; 
     width: 100px; 
+    display:block; 
+    float: left;
+    overflow: hidden;
+}
+
+.song-button-span-50{
+    max-width: 50px; 
+    min-width: 50px; 
+    width: 50px; 
     display:block; 
     float: left;
     overflow: hidden;
