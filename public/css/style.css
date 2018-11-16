@@ -43,6 +43,15 @@
     overflow: hidden;
 }
 
+.song-button-header{
+    width: 100%; 
+    text-align: left;
+    border-style: solid;
+    border-width: 1px; 
+    border-color: darkgray; 
+    border-radius: 0px
+}
+
 .song-button{
     width: 100%; 
     text-align: left;
