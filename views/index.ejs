@@ -37,11 +37,10 @@
                     $('#playButton').show();
                 }
             </script>
-            <% if(playing){ %>
+            <% if(!playing) document.getElementById("pauseButton").style.display = "none" %>
             <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
                 <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
-            <% } %>
 
             <form action="/fwd30" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
