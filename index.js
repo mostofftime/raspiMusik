@@ -74,7 +74,9 @@ app.get('/', function (req, res) {
     res.render('index', {
         songs: songs,
         songDetails: songDetails,
-        playing : playing
+        playing : playing,
+        inline : inline,
+        none : none
     });
 });
 
