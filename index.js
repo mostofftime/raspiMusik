@@ -15,7 +15,7 @@ var songs = [];
 var mediaDir = "media/Musik/";
 var currentSongIndex = 0;
 var songHistory = [];
-var volume = 5;
+var volume = 4;
 var songDetails = [];
 
 //gets song file names from mediaDir
@@ -89,7 +89,10 @@ app.post('/play', function (req, res) {
         }
     }
     playing = true;
-    res.render('index', {playing : false})
+    res.render('index', 
+        {
+            playing : false
+        })
 });
 
 app.post('/pause', function (req, res) {
@@ -104,6 +107,7 @@ app.post('/volUp', function (req, res) {
     if (player.running) {
         console.log("volume up");
         player.volUp();
+        volume++;
     }
 });
 
@@ -111,6 +115,7 @@ app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
         player.volDown();
+        volume--;
     }
 });
 

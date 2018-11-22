@@ -22,6 +22,7 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
             <% } %>
+            <% if(!playing) console.log("false"); %>
             <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
