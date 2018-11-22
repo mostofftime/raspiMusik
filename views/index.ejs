@@ -26,8 +26,8 @@
                 }
             </script>
             <% if(!playing){ %>
-            <form id="playButton" onclick="play()" action="/play" method="post" target="iframe" style="float: left; width: 40px">
-                <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
+            <form action="/play" method="post" target="iframe" style="float: left; width: 40px">
+                <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
             <% } %>
 
@@ -38,8 +38,8 @@
                 }
             </script>
             <% if(playing){ %>
-            <form id="pauseButton" onclick="pause()" action="/pause" method="post" target="iframe" style="float: left; width: 40px">
-                <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
+            <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
+                <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
             <% } %>
 
