@@ -75,8 +75,8 @@ app.get('/', function (req, res) {
         songs: songs,
         songDetails: songDetails,
         playing : playing,
-        inline : inline,
-        none : none
+        inline : "inline",
+        none : "none"
     });
 });
 
