@@ -20,20 +20,29 @@
             </form>
 
             <script>
-                    function play() {
-                        $('#playButton').hide();
-                        console.log("hiding");
-                    }
+                function play() {
+                    $('#playButton').hide();
+                    $('#pauseButton').show();
+                }
             </script>
-
+            <% if(playing){ %>
             <form id="playButton" onclick="play()" action="/play" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
+            <% } %>
 
-            
-            <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
+            <script>
+                function pause() {
+                    $('#pauseButton').hide();
+                    $('#playButton').show();
+                }
+            </script>
+            <% if(!playing){ %>
+            <form id="pauseButton" onclick="pause()" action="/pause" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
+            <% } %>
+
             <form action="/fwd30" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
             </form>
