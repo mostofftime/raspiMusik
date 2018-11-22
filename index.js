@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var path = require('path');
 var Omx = require('node-omxplayer');
 var id3 = require('id3js')
 
@@ -64,8 +63,6 @@ function sort() {
     );
 }
 
-songDetails.forEach(detail => console.log(detail.title));
-
 setInterval(function () {
     if (playing && !player.running) {
         setNewSong();
@@ -91,6 +88,7 @@ app.post('/play', function (req, res) {
         }
     }
     playing = true;
+    res.render('index', {playing : true})
 });
 
 app.post('/pause', function (req, res) {
