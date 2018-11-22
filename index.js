@@ -73,7 +73,8 @@ setInterval(function () {
 app.get('/', function (req, res) {
     res.render('index', {
         songs: songs,
-        songDetails: songDetails
+        songDetails: songDetails,
+        playing : true
     });
 });
 
