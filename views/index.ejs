@@ -25,7 +25,7 @@
                     $('#pauseButton').show();
                 }
             </script>
-            <form action="/play" method="post" target="iframe" style='float: left; width: 40px; display : <%= playing ? ´none´ : ´inline´ %>'>
+            <form action="/play" method="post" target="iframe" style='float: left; width: 40px; display : <%= playing ? "none" : "inline" %>'>
                 <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
 
