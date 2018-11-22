@@ -21,8 +21,8 @@
 
             <script>
                 function play() {
-                    $('#playButton').hide();
-                    $('#pauseButton').show();
+                    $('#playButton').css('display', 'none');
+                    $('#pauseButton').css('display', 'inline');
                 }
             </script>
             <form action="/play" method="post" target="iframe" style="float: left; width: 40px; <%=!playing ? inline : none%>">
@@ -30,9 +30,9 @@
             </form>
 
             <script>
-                function pause() {
-                    $('#pauseButton').hide();
-                    $('#playButton').show();
+                function pause() {                    
+                    $('#pauseButton').css('display', 'none');
+                    $('#playButton').css('display', 'inline');
                 }
             </script>
             <form action="/pause" method="post" target="iframe" style="float: left; width: 40px; <%=playing ? inline : none%>">
