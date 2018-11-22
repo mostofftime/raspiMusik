@@ -25,7 +25,7 @@
                     $('#pauseButton').show();
                 }
             </script>
-            <form action="/play" method="post" target="iframe" style="float: left; width: 40px; display : <%=playing%>">
+            <form action="/play" method="post" target="iframe" style="float: left; width: 40px; display : <%= playing%>">
                 <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
 
@@ -35,7 +35,7 @@
                     $('#playButton').show();
                 }
             </script>
-            <form action="/pause" method="post" target="iframe" style="float: left; width: 40px; display: <%=!playing%>">
+            <form action="/pause" method="post" target="iframe" style="float: left; width: 40px; display: <%= !playing%>">
                 <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
 
