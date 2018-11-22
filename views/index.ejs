@@ -25,11 +25,9 @@
                     $('#pauseButton').show();
                 }
             </script>
-            <% if(!playing){ %>
             <form action="/play" method="post" target="iframe" style="float: left; width: 40px">
                 <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
-            <% } %>
 
             <script>
                 function pause() {
@@ -37,7 +35,6 @@
                     $('#playButton').show();
                 }
             </script>
-            <% if(!playing) document.getElementById("pauseButton").style.display = "none" %>
             <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
                 <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
