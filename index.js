@@ -89,7 +89,7 @@ app.post('/play', function (req, res) {
         }
     }
     playing = true;
-    res.render('index', {playing : true})
+    res.render('index', {playing : false})
 });
 
 app.post('/pause', function (req, res) {
