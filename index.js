@@ -115,6 +115,7 @@ app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
         for (i = 0; i < 3; i++) {
+            console.log(i);
             player.volDown();
         }
         volume--;
