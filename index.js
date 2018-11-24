@@ -167,6 +167,7 @@ function setVolume(){
     console.log(volume);
     if(volume > 0){
         for(i = 0; i < volume; i++){
+            console.log(i);
             player.volUp();
         }
     }else if(volume < 0){
