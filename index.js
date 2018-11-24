@@ -165,6 +165,8 @@ function setNewSong() {
 function setVolume() {
     console.log("vol set");
     
+    player.volDown();
+/*
     if (player.running) {
         console.log(volume);
         if (volume > 0) {
@@ -173,6 +175,7 @@ function setVolume() {
             player.volDown();
         }
     }
+*/
 }
 
 app.listen(8080);
