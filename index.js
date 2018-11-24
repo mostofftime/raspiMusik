@@ -157,9 +157,9 @@ app.post('/previous', function (req, res) {
 function setNewSong() {
     currentSongIndex = Math.round(Math.random() * songs.length);
     player.newSource(mediaDir + songs[currentSongIndex], "local", false);
-    setVolume();
     songHistory.push(currentSongIndex);
     playing = true;
+    setVolume();
 }
 
 function setVolume(){
