@@ -167,11 +167,11 @@ function setVolume(){
     console.log(volume);
     if(volume > 0){
         for(i = 0; i < volume; i++){
-            setTimeout(function(){player.volUp()}, 1000);
+            setTimeout(function(){player.volUp()}, 250);
         }
     }else if(volume < 0){
         for(i = 0; i < (volume * -1); i++){
-            setTimeout(function(){player.volDown()}, 1000);
+            setTimeout(function(){player.volDown()}, 250);
         }
     }
 }
