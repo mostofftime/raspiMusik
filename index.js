@@ -84,9 +84,11 @@ app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
             player.newSource(mediaDir + songs[currentSongIndex], "local", false);
+            setVolume();
             songHistory.push(currentSongIndex);
-        } else {
             console.log("start playing");
+        } else {
+            console.log("continue playing")
             player.play();
         }
     }
@@ -120,6 +122,7 @@ app.post('/volDown', function (req, res) {
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
     player.newSource(mediaDir + req.body.title, "local", false);
+    setVolume();
     playing = true;
 });
 
@@ -144,6 +147,7 @@ app.post('/next', function (req, res) {
 app.post('/previous', function (req, res) {
     if (songHistory.pop.length > 0) {
         player.newSource(mediaDir + songs[songHistory.pop], "local", false);
+        setVolume();
         playing = true;
     }
 });
@@ -151,8 +155,21 @@ app.post('/previous', function (req, res) {
 function setNewSong() {
     currentSongIndex = Math.round(Math.random() * songs.length);
     player.newSource(mediaDir + songs[currentSongIndex], "local", false);
+    setVolume();
     songHistory.push(currentSongIndex);
     playing = true;
+}
+
+function setVolume(){
+    if(volume > 0){
+        for(i = 0; i < volume; i++){
+            player.volUp();
+        }
+    }else if(volume < 0){
+        for(i = 0; i < volume * -1; i++){
+            player.volDown();
+        }
+    }
 }
 
 app.listen(8080);
