@@ -15,13 +15,13 @@ var songs = [];
 var mediaDir = "media/Musik/";
 var currentSongIndex = 0;
 var songHistory = [];
-var volume = 4;
+var volume = 0;
 var songDetails = [];
+var playmodeEnum = {"shuffle":1, "linear":2};
 
 //gets song file names from mediaDir
 fs.readdirSync(mediaDir)
     .filter(file => file.endsWith(".mp3"))
-    .map(file => file.substring(0, file.length - 4))
     .forEach(file => {
         songs.push(file);
     });
@@ -30,7 +30,7 @@ fs.readdirSync(mediaDir)
 var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function(song, index) {
-    id3({ file: mediaDir + song + ".mp3", type: id3.OPEN_LOCAL }, function (err, tags) {
+    id3({ file: mediaDir + song, type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
@@ -83,7 +83,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
+            player.newSource(mediaDir + songs[currentSongIndex], "local", false);
             songHistory.push(currentSongIndex);
         } else {
             console.log("start playing");
@@ -119,7 +119,7 @@ app.post('/volDown', function (req, res) {
 
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
-    player.newSource(mediaDir + req.body.title + ".mp3", "local", false, volume);
+    player.newSource(mediaDir + req.body.title, "local", false);
     playing = true;
 });
 
@@ -143,14 +143,14 @@ app.post('/next', function (req, res) {
 
 app.post('/previous', function (req, res) {
     if (songHistory.pop.length > 0) {
-        player.newSource(mediaDir + songs[songHistory.pop] + ".mp3", "local", false, volume);
+        player.newSource(mediaDir + songs[songHistory.pop], "local", false);
         playing = true;
     }
 });
 
 function setNewSong() {
     currentSongIndex = Math.round(Math.random() * songs.length);
-    player.newSource(mediaDir + songs[currentSongIndex] + ".mp3", "local", false, volume);
+    player.newSource(mediaDir + songs[currentSongIndex], "local", false);
     songHistory.push(currentSongIndex);
     playing = true;
 }
