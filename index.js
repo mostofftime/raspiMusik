@@ -162,18 +162,22 @@ function setNewSong() {
     setVolume();
 }
 
-async function setVolume(){
+function setVolume(){
     console.log("vol set");
     console.log(volume);
     if(volume > 0){
         for(i = 0; i < volume; i++){
-            player.volUp();
+            setTimeout(player.volUp(), 1000);
         }
     }else if(volume < 0){
         for(i = 0; i < (volume * -1); i++){
-            player.volDown();
+            setTimeout(player.volDown(), 1000);
         }
     }
+}
+
+function volumeDown(){
+    player.volDown();
 }
 
 app.listen(8080);
