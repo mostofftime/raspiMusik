@@ -161,6 +161,7 @@ function setNewSong() {
 }
 
 function setVolume(){
+    console.log("vol set");
     if(volume > 0){
         for(i = 0; i < volume; i++){
             player.volUp();
