@@ -164,15 +164,15 @@ function setNewSong() {
 
 function setVolume(){
     console.log("vol set");
-    /*if(volume > 0){
+    if(volume > 0){
         for(i = 0; i < volume; i++){
             player.volUp();
         }
     }else if(volume < 0){
-        for(i = 0; i < volume * -1; i++){
+        for(i = 0; i < (volume * -1); i++){
             player.volDown();
         }
-    }*/
+    }
 }
 
 app.listen(8080);
