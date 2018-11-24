@@ -17,7 +17,7 @@ var currentSongIndex = 0;
 var songHistory = [];
 var volume = 0;
 var songDetails = [];
-var playmodeEnum = {"shuffle":1, "linear":2};
+var playmodeEnum = { "shuffle": 1, "linear": 2 };
 
 //gets song file names from mediaDir
 fs.readdirSync(mediaDir)
@@ -29,7 +29,7 @@ fs.readdirSync(mediaDir)
 //initialize songs and songdetails, sorting them with sort()
 var asyncCounter = 0;
 songDetails.length = songs.length;
-songs.forEach(function(song, index) {
+songs.forEach(function (song, index) {
     id3({ file: mediaDir + song, type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails[index] = tags;
         asyncCounter++;
@@ -74,9 +74,9 @@ app.get('/', function (req, res) {
     res.render('index', {
         songs: songs,
         songDetails: songDetails,
-        playing : playing,
-        inline : "display : inline;",
-        none : "display : none;"
+        playing: playing,
+        inline: "display : inline;",
+        none: "display : none;"
     });
 });
 
@@ -162,21 +162,23 @@ function setNewSong() {
     setVolume();
 }
 
-function setVolume(){
+function setVolume() {
     console.log("vol set");
     console.log(volume);
-    if(volume > 0){
-        for(i = 0; i < volume; i++){
-            setTimeout(function(){player.volUp()}, 250);
-        }
-    }else if(volume < 0){
-        for(i = 0; i < (volume * -1); i++){
-            setTimeout(function(){player.volDown()}, 250);
+    if (player.running) {
+        if (volume > 0) {
+            for (i = 0; i < volume; i++) {
+                player.volUp();
+            }
+        } else if (volume < 0) {
+            for (i = 0; i < (volume * -1); i++) {
+                player.volDown();
+            }
         }
     }
 }
 
-function volumeDown(){
+function volumeDown() {
     player.volDown();
 }
 
