@@ -142,6 +142,7 @@ app.post('/back30', function (req, res) {
 
 app.post('/next', function (req, res) {
     setNewSong();
+    consolel.log("next");
 });
 
 app.post('/previous', function (req, res) {
@@ -149,6 +150,7 @@ app.post('/previous', function (req, res) {
         player.newSource(mediaDir + songs[songHistory.pop], "local", false);
         setVolume();
         playing = true;
+        console.log("previous");
     }
 });
 
@@ -162,7 +164,7 @@ function setNewSong() {
 
 function setVolume(){
     console.log("vol set");
-    if(volume > 0){
+    /*if(volume > 0){
         for(i = 0; i < volume; i++){
             player.volUp();
         }
@@ -170,7 +172,7 @@ function setVolume(){
         for(i = 0; i < volume * -1; i++){
             player.volDown();
         }
-    }
+    }*/
 }
 
 app.listen(8080);
