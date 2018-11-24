@@ -168,19 +168,11 @@ function setVolume() {
     if (player.running) {
         console.log(volume);
         if (volume > 0) {
-            for (i = 0; i < volume; i++) {
-                player.volUp();
-            }
+            player.volUp();
         } else if (volume < 0) {
-            for (i = 0; i < (volume * -1); i++) {
-                player.volDown();
-            }
+            player.volDown();
         }
     }
-}
-
-function volumeDown() {
-    player.volDown();
 }
 
 app.listen(8080);
