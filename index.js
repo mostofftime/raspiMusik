@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
-var Omx = require('node-omxplayer');
+var Omx = require('omxctrl');
 var id3 = require('id3js')
 
-var player = Omx();
+var player;// = Omx();
 var playing = false;
 var fs = require('fs');
 const bodyParser = require('body-parser');
@@ -82,8 +82,8 @@ app.get('/', function (req, res) {
 
 app.post('/play', function (req, res) {
     if (!playing) {
-        if (!player.running) {
-            player.newSource(mediaDir + songs[currentSongIndex], "local", false);
+        if (!player) {
+            player.play(mediaDir + songs[currentSongIndex]);
             //setVolume();
             songHistory.push(currentSongIndex);
             console.log("start playing");
@@ -114,8 +114,7 @@ app.post('/volUp', function (req, res) {
 app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
-            player.volDown();
-    
+        player.volDown();
         volume--;
     }
 });
