@@ -107,7 +107,7 @@ app.post('/pause', function (req, res) {
 app.post('/volUp', function (req, res) {
     if (player.running) {
         console.log("volume up");
-        player.volUp();
+        player.increaseVolume();
         volume++;
     }
 });
@@ -115,7 +115,7 @@ app.post('/volUp', function (req, res) {
 app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
-        player.volDown();
+        player.decreaseVolume();
         volume--;
     }
 });
