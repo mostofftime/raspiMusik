@@ -112,11 +112,8 @@ app.post('/volUp', function (req, res) {
 });
 
 function volumeDown(number) {
-    player.volDown();
-    if (number > 0) {
-        console.log(number);
-        volumeDown(--number);
-    }
+    player.volDown().then(player.volDown());
+    
 }
 
 app.post('/volDown', function (req, res) {
