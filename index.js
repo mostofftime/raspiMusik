@@ -15,7 +15,6 @@ var songs = [];
 var mediaDir = "media/Musik/";
 var currentSongIndex = 0;
 var songHistory = [];
-var volume = 0;
 var songDetails = [];
 var playmodeEnum = { "shuffle": 1, "linear": 2 };
 
@@ -84,7 +83,6 @@ app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
             player.newSource(mediaDir + songs[currentSongIndex], "local", false, 0, false);
-            //setVolume();
             songHistory.push(currentSongIndex);
             console.log("start playing");
         } else {
@@ -111,17 +109,10 @@ app.post('/volUp', function (req, res) {
     }
 });
 
-function volumeDown(number) {
-    player.volDown();
-}
-
 app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
-        volumeDown();
-        volumeDown();
-        volumeDown();
-        volumeDown();
+        player.volDown();
         volume--;
     }
 });
@@ -129,7 +120,6 @@ app.post('/volDown', function (req, res) {
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
     player.newSource(mediaDir + req.body.title, "local", false, 0, false);
-    //setVolume();
     playing = true;
 });
 
@@ -148,14 +138,13 @@ app.post('/back30', function (req, res) {
 });
 
 app.post('/next', function (req, res) {
-    //setNewSong();
+    setNewSong();
     consolel.log("next");
 });
 
 app.post('/previous', function (req, res) {
     if (songHistory.pop.length > 0) {
         player.newSource(mediaDir + songs[songHistory.pop], "local", false, 0, false);
-        //setVolume();
         playing = true;
         console.log("previous");
     }
@@ -166,24 +155,6 @@ function setNewSong() {
     player.newSource(mediaDir + songs[currentSongIndex], "local", false, 0, false);
     songHistory.push(currentSongIndex);
     playing = true;
-    //setVolume();
-}
-
-function setVolume() {
-    console.log("vol set");
-
-    if (player.running) {
-        console.log(volume);
-        if (volume > 0) {
-            for (i = 0; i < volume; i++) {
-                player.volUp();
-            }
-        } else if (volume < 0) {
-            for (i = 0; i < (volume * -1); i++) {
-                player.volDown();
-            }
-        }
-    }
 }
 
 app.listen(8080);
