@@ -105,19 +105,17 @@ app.post('/pause', function (req, res) {
 });
 
 app.post('/volUp', function (req, res) {
-    if (player.running) {
         console.log("volume up");
         player.increaseVolume();
         volume++;
-    }
+    
 });
 
 app.post('/volDown', function (req, res) {
-    if (player.running) {
         console.log("volume down");
         player.decreaseVolume();
         volume--;
-    }
+    
 });
 
 app.post('/song', function (req, res) {
