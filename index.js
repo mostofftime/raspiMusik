@@ -83,7 +83,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource(mediaDir + songs[currentSongIndex], "local", false);
+            player.newSource(mediaDir + songs[currentSongIndex], "local", false, 0);
             //setVolume();
             songHistory.push(currentSongIndex);
             console.log("start playing");
