@@ -63,11 +63,11 @@ function sort() {
     );
 }
 
-setInterval(function () {
+/*setInterval(function () {
     if (playing && !player.running) {
         setNewSong();
     }
-}, 1000);
+}, 1000);*/
 
 //******************routing************************
 app.get('/', function (req, res) {
