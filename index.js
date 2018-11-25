@@ -114,8 +114,8 @@ app.post('/volUp', function (req, res) {
 app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
-            player.volDown();
-    
+        player.volDown();
+        player.volDown();
         volume--;
     }
 });
