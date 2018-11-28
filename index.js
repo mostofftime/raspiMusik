@@ -159,6 +159,7 @@ app.post('/toggleShuffle', function (req, res) {
 });
 
 function setNewSong() {
+    console.log(mode);
     if (mode === playmodeEnum.shuffle) {
         currentSongIndex = Math.round(Math.random() * songs.length);
     } else{

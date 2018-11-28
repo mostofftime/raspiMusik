@@ -74,6 +74,7 @@
             <% if(mode === "shuffle"){ %>
                 <script>shuffle()</script>
             <% } %>
+            <% console.log(mode) %>
             <form action="/toggleShuffle" method="post" target="iframe" style="float: left; width: 40px">
                 <button onclick="toggleShuffle()" class="btn btn-info" type="submit"><span id="shuffleSpan" class="glyphicon glyphicon-random" style="color:grey"></span></button>
             </form>
