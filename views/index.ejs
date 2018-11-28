@@ -63,7 +63,6 @@
             </form>
             <script>
                 function toggleShuffle() {
-                    console.log($('#shuffleSpan').css('color'));
                     if ($('#shuffleSpan').css('color') === 'rgb(128, 128, 128)') {
                         $('#shuffleSpan').css('color', '#FFD700');
                     }else{
@@ -72,7 +71,7 @@
                 }
             </script>
             <% if(mode === 2){ %>
-                <script>shuffle()</script>
+                <script>toggleShuffle()</script>
             <% } %>
             <form action="/toggleShuffle" method="post" target="iframe" style="float: left; width: 40px">
                 <button onclick="toggleShuffle()" class="btn btn-info" type="submit"><span id="shuffleSpan" class="glyphicon glyphicon-random" style="color:grey"></span></button>

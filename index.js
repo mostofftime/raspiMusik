@@ -143,7 +143,7 @@ app.post('/back30', function (req, res) {
 
 app.post('/next', function (req, res) {
     setNewSong();
-    consolel.log("next");
+    console.log("next");
 });
 
 app.post('/previous', function (req, res) {
