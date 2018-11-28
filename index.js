@@ -36,9 +36,6 @@ songs.forEach(function (song, index) {
         if (asyncCounter === songs.length) {
             sort();
         }
-        if(err){
-            console.log(err);
-        }
     });
 });
 
