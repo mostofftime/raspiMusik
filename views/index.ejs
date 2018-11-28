@@ -30,7 +30,7 @@
             </form>
 
             <script>
-                function pause() {                    
+                function pause() {
                     $('#pauseButton').css('display', 'none');
                     $('#playButton').css('display', 'inline');
                 }
@@ -38,7 +38,7 @@
             <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
                 <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
-            
+
             <% if(playing){ %>
             <script>
                 play();
@@ -62,8 +62,12 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
             </form>
             <script>
-                function toggleShuffle(){
-                    $('#shuffleSpan').css('color', 'red');
+                function toggleShuffle() {
+                    if ($('#shuffleSpan').css('color' === 'grey')) {
+                        $('#shuffleSpan').css('color', 'darkred');
+                    }else{
+                        $('#shuffleSpan').css('color', 'grey');
+                    }
                 }
             </script>
             <form action="/shuffle" method="post" target="iframe" style="float: left; width: 40px">
