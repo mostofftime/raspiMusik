@@ -17,6 +17,7 @@ var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
 var playmodeEnum = { "shuffle": 1, "linear": 2 };
+var mode = playmodeEnum.linear;
 var volume = -1600;
 
 //gets song file names from mediaDir
@@ -77,7 +78,8 @@ app.get('/', function (req, res) {
         songDetails: songDetails,
         playing: playing,
         inline: "display : inline;",
-        none: "display : none;"
+        none: "display : none;",
+        mode : mode
     });
 });
 
@@ -106,7 +108,7 @@ app.post('/pause', function (req, res) {
 app.post('/volUp', function (req, res) {
     if (player.running) {
         console.log("volume up");
-        volume+=300;
+        volume += 300;
         player.volUp();
     }
 });
@@ -114,7 +116,7 @@ app.post('/volUp', function (req, res) {
 app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
-        volume-=300;
+        volume -= 300;
         player.volDown();
     }
 });
@@ -152,8 +154,19 @@ app.post('/previous', function (req, res) {
     }
 });
 
+app.post('/toggleShuffle', function (req, res) {
+    mode = mode === playmodeEnum.linear ? playmodeEnum.shuffle : playmodeEnum.linear;
+});
+
 function setNewSong() {
-    currentSongIndex = Math.round(Math.random() * songs.length);
+    if (mode === playmodeEnum.shuffle) {
+        currentSongIndex = Math.round(Math.random() * songs.length);
+    } else{
+        currentSongIndex = ++currentSongIndex;
+        if(currentSongIndex === songs.length){
+            currentSongIndex = 0;
+        }
+    }
     player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
     songHistory.push(currentSongIndex);
     playing = true;
