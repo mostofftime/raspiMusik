@@ -150,6 +150,7 @@ app.post('/next', function (req, res) {
 
 app.post('/previous', function (req, res) {
     if (songHistory.length > 0) {
+        console.log(songHistory[songHistory.length - 1]);
         player.newSource(mediaDir + songs[songHistory.pop], "local", false, volume);
         playing = true;
         console.log("previous");
