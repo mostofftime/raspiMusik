@@ -109,7 +109,7 @@
         <% songs.forEach(function(song, index) { %>
         <div>
             <form action="/song" method="post" target="iframe">
-                <button class="btn btn-secondary song-button" type="submit" value='<%=song %>' name='title' onclick="play()">
+                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='title' onclick="play()">
                     <span class="song-button-span-250">
                         <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                     </span>

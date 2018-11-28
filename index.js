@@ -123,7 +123,7 @@ app.post('/volDown', function (req, res) {
 
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
-    player.newSource(mediaDir + req.body.title, "local", false, volume);
+    player.newSource(mediaDir + songs[req.body.index], "local", false, volume);
     playing = true;
 });
 
