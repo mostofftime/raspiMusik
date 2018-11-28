@@ -63,7 +63,8 @@
             </form>
             <script>
                 function toggleShuffle() {
-                    if ($('#shuffleSpan').css('color' === 'grey')) {
+                    console.log($('#shuffleSpan').css('color'));
+                    if ($('#shuffleSpan').css('color' === '#808080')) {
                         $('#shuffleSpan').css('color', 'darkred');
                     }else{
                         $('#shuffleSpan').css('color', 'grey');
