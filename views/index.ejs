@@ -57,9 +57,17 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
             </form>
         </div>
-        <div style="margin: 0 auto; width: 80px">
+        <div style="margin: 0 auto; width: 120px">
             <form action="/volDown" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
+            </form>
+            <script>
+                function toggleShuffle(){
+                    $('shuffleButton').css('color', 'red');
+                }
+            </script>
+            <form action="/shuffle" method="post" target="iframe" style="float: left; width: 40px">
+                <button id="shuffleButton" onclick="toggleShuffle()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-random"></span></button>
             </form>
             <form action="/volUp" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
