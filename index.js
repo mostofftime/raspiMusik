@@ -17,7 +17,7 @@ var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
 var playmodeEnum = { "shuffle": 1, "linear": 2 };
-var volume = 1600;
+var volume = -1600;
 
 //gets song file names from mediaDir
 fs.readdirSync(mediaDir)
