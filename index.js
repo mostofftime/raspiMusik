@@ -17,6 +17,7 @@ var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
 var playmodeEnum = { "shuffle": 1, "linear": 2 };
+var volume = 0;
 
 //gets song file names from mediaDir
 fs.readdirSync(mediaDir)
@@ -82,7 +83,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource(mediaDir + songs[currentSongIndex], "local", false, 0, false);
+            player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
             songHistory.push(currentSongIndex);
             console.log("start playing");
         } else {
@@ -104,6 +105,7 @@ app.post('/pause', function (req, res) {
 app.post('/volUp', function (req, res) {
     if (player.running) {
         console.log("volume up");
+        volume+=300;
         player.volUp();
     }
 });
@@ -111,13 +113,14 @@ app.post('/volUp', function (req, res) {
 app.post('/volDown', function (req, res) {
     if (player.running) {
         console.log("volume down");
+        volume-=300;
         player.volDown();
     }
 });
 
 app.post('/song', function (req, res) {
     console.log("playing: " + req.body.title);
-    player.newSource(mediaDir + req.body.title, "local", false, 0, false);
+    player.newSource(mediaDir + req.body.title, "local", false, volume);
     playing = true;
 });
 
@@ -142,7 +145,7 @@ app.post('/next', function (req, res) {
 
 app.post('/previous', function (req, res) {
     if (songHistory.pop.length > 0) {
-        player.newSource(mediaDir + songs[songHistory.pop], "local", false, 0, false);
+        player.newSource(mediaDir + songs[songHistory.pop], "local", false, volume);
         playing = true;
         console.log("previous");
     }
@@ -150,7 +153,7 @@ app.post('/previous', function (req, res) {
 
 function setNewSong() {
     currentSongIndex = Math.round(Math.random() * songs.length);
-    player.newSource(mediaDir + songs[currentSongIndex], "local", false, 0, false);
+    player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
     songHistory.push(currentSongIndex);
     playing = true;
 }
