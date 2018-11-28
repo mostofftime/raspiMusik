@@ -87,7 +87,6 @@ app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
             player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
-            songHistory.push(currentSongIndex);
             console.log("start playing");
         } else {
             console.log("continue playing")
@@ -122,10 +121,10 @@ app.post('/volDown', function (req, res) {
 });
 
 app.post('/song', function (req, res) {
-    console.log("playing: " + req.body.title);
+    console.log("playing: " + songs[req.body.index]);
+    songHistory.push(currentSongIndex);
     player.newSource(mediaDir + songs[req.body.index], "local", false, volume);
     currentSongIndex = req.body.index;
-    songHistory.push(currentSongIndex);
     playing = true;
 });
 
@@ -150,7 +149,6 @@ app.post('/next', function (req, res) {
 
 app.post('/previous', function (req, res) {
     if (songHistory.length > 0) {
-        console.log(songHistory[songHistory.length - 1]);
         currentSongIndex = songHistory.pop();
         player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
         playing = true;
@@ -163,8 +161,7 @@ app.post('/toggleShuffle', function (req, res) {
 });
 
 function setNewSong() {
-    console.log(mode);
-    console.log(playmodeEnum.shuffle);
+    songHistory.push(currentSongIndex);
     if (mode === playmodeEnum.shuffle) {
         currentSongIndex = Math.round(Math.random() * songs.length);
     } else{
@@ -174,7 +171,6 @@ function setNewSong() {
         }
     }
     player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
-    songHistory.push(currentSongIndex);
     playing = true;
 }
 
