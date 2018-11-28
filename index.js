@@ -30,7 +30,7 @@ fs.readdirSync(mediaDir)
 var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function (song, index) {
-    id3({ file: mediaDir + song, type: id3.OPEN_LOCAL }, function (tags, err) {
+    id3({ file: mediaDir + song, type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
