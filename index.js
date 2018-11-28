@@ -149,7 +149,7 @@ app.post('/next', function (req, res) {
 });
 
 app.post('/previous', function (req, res) {
-    if (songHistory.pop.length > 0) {
+    if (songHistory.length > 0) {
         player.newSource(mediaDir + songs[songHistory.pop], "local", false, volume);
         playing = true;
         console.log("previous");
