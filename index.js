@@ -61,6 +61,7 @@ function sort() {
             songs.push(songMap.get(detail));
         }
     );
+    console.log("Songs sorted, Server online")
 }
 
 setInterval(function () {
