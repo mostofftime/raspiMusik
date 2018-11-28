@@ -37,7 +37,7 @@ songs.forEach(function (song, index) {
             sort();
         }
         if(err){
-            throw err;
+            console.log(err);
         }
     });
 });
