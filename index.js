@@ -14,8 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 var songs = [];
-var mediaDir = path.join(__dirname, 'media/Musik');//'/home/raspiMusik/raspiMusik/media/Musik/';
-console.log(mediaDir);
+var mediaDir = path.join(__dirname, 'media/Musik');
 var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
@@ -34,7 +33,6 @@ fs.readdirSync(mediaDir)
 var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function (song, index) {
-    console.log(path.join(mediaDir, song));
     id3({ file: path.join(mediaDir, song), type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails[index] = tags;
         asyncCounter++;
@@ -66,7 +64,6 @@ function sort() {
             songs.push(songMap.get(detail));
         }
     );
-    console.log(songDetails);
     console.log("Songs sorted, Server online")
 }
 
