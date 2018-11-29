@@ -30,8 +30,6 @@ fs.readdirSync(mediaDir)
         songs.push(file);
     });
 
-console.log(songs);
-
 //initialize songs and songdetails, sorting them with sort()
 var asyncCounter = 0;
 songDetails.length = songs.length;
