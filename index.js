@@ -6,7 +6,7 @@ var path = require('path');
 
 var player = Omx();
 var playing = false;
-var fs = require('fs');
+var fs = require('fs-extra');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
