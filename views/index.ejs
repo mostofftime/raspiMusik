@@ -63,10 +63,13 @@
             </form>
             <script>
                 function toggleShuffle() {
+                    console.log("grau2");
+                    console.log($('#shuffleSpan').css('color'));
                     if ($('#shuffleSpan').css('color') === 'rgb(128, 128, 128)') {
                         console.log("grau");
                         $('#shuffleSpan').css('color', '#FFD700');
                     }else{
+                        console.log("grau3");
                         $('#shuffleSpan').css('color', 'grey');
                     }
                 }
