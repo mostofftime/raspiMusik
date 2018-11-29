@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var Omx = require('node-omxplayer');
-var id3 = require('id3js')
+var id3 = require('id3js');
+var path = require('path');
 
 var player = Omx();
 var playing = false;
