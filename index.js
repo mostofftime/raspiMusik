@@ -36,6 +36,7 @@ console.log(songs);
 var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function (song, index) {
+    console.log(path.join(mediaDir, song));
     id3({ file: path.join(mediaDir, song), type: id3.OPEN_LOCAL }, function (err, tags) {
         songDetails[index] = tags;
         asyncCounter++;
