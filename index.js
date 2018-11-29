@@ -152,7 +152,7 @@ app.post('/previous', function (req, res) {
         currentSongIndex = songHistory.pop();
         player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
         playing = true;
-        console.log("previous");
+        console.log("previou");
     }
 });
 
