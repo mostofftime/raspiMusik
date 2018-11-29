@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 var songs = [];
-var mediaDir = '/home/raspiMusik/raspiMusik/media/Musik/';
+var mediaDir = path.join(__dirname, 'media/Musik');//'/home/raspiMusik/raspiMusik/media/Musik/';
 var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
@@ -88,7 +88,7 @@ app.get('/', function (req, res) {
 app.post('/play', function (req, res) {
     if (!playing) {
         if (!player.running) {
-            player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
+            player.newSource(paths.join(mediaDir, songs[currentSongIndex]), "local", false, volume);
             console.log("start playing");
         } else {
             console.log("continue playing")
@@ -125,8 +125,8 @@ app.post('/volDown', function (req, res) {
 app.post('/song', function (req, res) {
     console.log("playing: " + songs[req.body.index]);
     songHistory.push(currentSongIndex);
-    player.newSource(mediaDir + songs[req.body.index], "local", false, volume);
     currentSongIndex = req.body.index;
+    player.newSource(paths.join(mediaDir, songs[currentSongIndex]), "local", false, volume);
     playing = true;
 });
 
@@ -152,7 +152,7 @@ app.post('/next', function (req, res) {
 app.post('/previous', function (req, res) {
     if (songHistory.length > 0) {
         currentSongIndex = songHistory.pop();
-        player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
+        player.newSource(paths.join(mediaDir, songs[currentSongIndex]), "local", false, volume);
         playing = true;
         console.log("previous");
     }
@@ -172,7 +172,7 @@ function setNewSong() {
             currentSongIndex = 0;
         }
     }
-    player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
+    player.newSource(paths.join(mediaDir, songs[currentSongIndex]), "local", false, volume);
     playing = true;
 }
 
