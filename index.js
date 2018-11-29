@@ -15,6 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 var songs = [];
 var mediaDir = path.join(__dirname, 'media/Musik');//'/home/raspiMusik/raspiMusik/media/Musik/';
+console.log(mediaDir);
 var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
