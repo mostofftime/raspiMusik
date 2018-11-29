@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 var songs = [];
-var mediaDir = path.join(__dirname, 'media/Musik/');
+var mediaDir = path.join(__dirname, 'media/Musik');
 var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
