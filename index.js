@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 var songs = [];
-var mediaDir = path.join(__dirname, 'media/Musik');
+var mediaDir = '/home/raspiMusik/raspiMusikmedia/Musik/';
 var currentSongIndex = 0;
 var songHistory = [];
 var songDetails = [];
@@ -154,7 +154,7 @@ app.post('/previous', function (req, res) {
         currentSongIndex = songHistory.pop();
         player.newSource(mediaDir + songs[currentSongIndex], "local", false, volume);
         playing = true;
-        console.log("previou");
+        console.log("previous");
     }
 });
 
