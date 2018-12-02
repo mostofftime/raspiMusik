@@ -100,7 +100,7 @@ app.post('/play', function (req, res) {
 
 app.post('/pause', function (req, res) {
     if (playing) {
-        console.log("pausing...");
+        console.log("pausing");
         player.pause();
     }
     playing = false;
