@@ -124,10 +124,7 @@ app.post('/volDown', function (req, res) {
 
 app.post('/song', function (req, res) {
     console.log("playing: " + songs[req.body.index]);
-    songHistory.push(currentSongIndex);
-    currentSongIndex = req.body.index;
-    player.newSource(path.join(mediaDir, songs[currentSongIndex]), "local", false, volume);
-    playing = true;
+    setNewSong(req.body.index);
 });
 
 app.post('/fwd30', function (req, res) {
@@ -162,9 +159,11 @@ app.post('/toggleShuffle', function (req, res) {
     mode = mode === playmodeEnum.linear ? playmodeEnum.shuffle : playmodeEnum.linear;
 });
 
-function setNewSong() {
+function setNewSong(index) {
     songHistory.push(currentSongIndex);
-    if (mode === playmodeEnum.shuffle) {
+    if(index){
+        currentSongIndex = index;
+    }else if (mode === playmodeEnum.shuffle) {
         currentSongIndex = Math.round(Math.random() * songs.length);
     } else{
         currentSongIndex = ++currentSongIndex;
