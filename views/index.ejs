@@ -65,19 +65,20 @@
                 function toggleShuffle() {
                     if ($('#shuffleSpan').css('color') === 'rgb(128, 128, 128)') {
                         $('#shuffleSpan').css('color', '#FFD700');
-                    }else{
+                    } else {
                         $('#shuffleSpan').css('color', 'grey');
                     }
                 }
             </script>
-            
+
             <form action="/toggleShuffle" method="post" target="iframe" style="float: left; width: 40px">
-                <button onclick="toggleShuffle()" class="btn btn-info" type="submit"><span id="shuffleSpan" class="glyphicon glyphicon-random" style="color:grey"></span></button>
+                <button onclick="toggleShuffle()" class="btn btn-info" type="submit"><span id="shuffleSpan" class="glyphicon glyphicon-random"
+                        style="color:grey"></span></button>
             </form>
             <% if(mode == 1){%>
-                <script>
-                    toggleShuffle();
-                </script>
+            <script>
+                toggleShuffle();
+            </script>
             <% } %>
             <form action="/volUp" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
@@ -112,7 +113,8 @@
         <% songs.forEach(function(song, index) { %>
         <div>
             <form action="/song" method="post" target="iframe">
-                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' onclick="play()">
+                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>'
+                    onclick="play()">
                     <span class="song-button-span-250">
                         <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                     </span>
@@ -127,9 +129,8 @@
                     </span>
                 </button>
             </form>
-            <div>
-                <% }); %>
-            </div>
+        </div>
+        <% }); %>
 
 </body>
 
