@@ -20,7 +20,10 @@
             </form>
 
             <script>
-                function play() {
+                function play(index) {
+                    console.log(index);
+                    $('#' + index).css('border-color', 'red');
+                    $('#' + index).css('border-style', 'solid');
                     $('#playButton').css('display', 'none');
                     $('#pauseButton').css('display', 'inline');
                 }
@@ -113,8 +116,8 @@
         <% songs.forEach(function(song, index) { %>
         <div>
             <form action="/song" method="post" target="iframe">
-                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>'
-                    onclick="play()">
+                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' id='<%=index %>'
+                    onclick="play('<%=index %>')">
                     <span class="song-button-span-250">
                         <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                     </span>
