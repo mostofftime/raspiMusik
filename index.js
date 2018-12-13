@@ -81,7 +81,7 @@ app.get('/', function (req, res) {
         playing: playing,
         inline: "display : inline;",
         none: "display : none;",
-        mode : mode
+        mode: mode
     });
 });
 
@@ -161,13 +161,13 @@ app.post('/toggleShuffle', function (req, res) {
 
 function setNewSong(index) {
     songHistory.push(currentSongIndex);
-    if(index){
+    if (index) {
         currentSongIndex = index;
-    }else if (mode === playmodeEnum.shuffle) {
+    } else if (mode === playmodeEnum.shuffle) {
         currentSongIndex = Math.round(Math.random() * songs.length);
-    } else{
+    } else {
         currentSongIndex = ++currentSongIndex;
-        if(currentSongIndex === songs.length){
+        if (currentSongIndex === songs.length) {
             currentSongIndex = 0;
         }
     }
@@ -175,8 +175,8 @@ function setNewSong(index) {
     playing = true;
 }
 
-app.get('/currentSong', function(req, res){
-    res.json({"title" : songDetails[currentSongIndex].title});
+app.get('/currentSong', function (req, res) {
+    res.json({ "title": songDetails[currentSongIndex].title + " - " + songDetails[currentSongIndex].artist });
 });
 
 app.listen(8080);
