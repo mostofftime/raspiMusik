@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: #968bdc">
-    <div class="navbar navbar-default navbar-fixed-top" style="min-height: 81px; max-height: 81px; height: 81px; background-color: slateblue;">
+    <div class="navbar navbar-default navbar-fixed-top" style="min-height: 100px; max-height: 100px; height: 100px; background-color: slateblue;">
         <div style="margin: 0 auto; width: 200px">
             <form action="/previous" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
@@ -88,7 +88,7 @@
     </div>
 
     <div>
-        <label class="label label-default" id="currentSong">Song here<label>
+        <label class="label label-default" id="currentSong"></label>
     </div>
     <script>
         setInterval(function () {
@@ -97,7 +97,7 @@
                 type:"GET",
                 success: function(result){
                     console.log(result);
-                    $('#currentSong').val(result.title);
+                    $('#currentSong').attr('value',  result.title);
                 }
             })
         }, 1000);
