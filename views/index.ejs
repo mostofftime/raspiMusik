@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-color: #968bdc">
-    <div class="navbar navbar-default navbar-fixed-top" style="min-height: 68px; max-height: 68px; height: 68px; background-color: slateblue;">
+    <div class="navbar navbar-default navbar-fixed-top" style="min-height: 81px; max-height: 81px; height: 81px; background-color: slateblue;">
         <div style="margin: 0 auto; width: 200px">
             <form action="/previous" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
@@ -85,23 +85,23 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
             </form>
         </div>
-        <div>
-            <label class="label" id="currentSong">Song here<label>
-        </div>
-        <script>
-            setInterval(function () {
-                console.log("a");
-                $.ajax({
-                    url: '/currentSong',
-                    type:"GET",
-                    success: function(result){
-                        console.log(result);
-                        $('#currentSong').css('value', result.title);
-                    }
-                })
-            }, 1000);
-        </script>
     </div>
+
+    <div>
+        <label class="label label-default" id="currentSong">Song here<label>
+    </div>
+    <script>
+        setInterval(function () {
+            $.ajax({
+                url: '/currentSong',
+                type:"GET",
+                success: function(result){
+                    console.log(result);
+                    $('#currentSong').val(result.title);
+                }
+            })
+        }, 1000);
+    </script>
 
     <div style="text-align: center; margin-top: 100px; color: purple">
         <h1>Raspimusik</h1>
