@@ -18,6 +18,14 @@
             <form action="/back30" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-backward"></span></button>
             </form>
+
+            <script>
+                function play(index) {
+                    console.log(index);
+                    $('#playButton').css('display', 'none');
+                    $('#pauseButton').css('display', 'inline');
+                }
+            </script>
             <form action="/play" method="post" target="iframe" style="float: left; width: 40px;">
                 <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
@@ -78,7 +86,7 @@
             </form>
         </div>
         <div align="center">
-            <label class="label label-default" id="currentSong">abc</label>
+            <label class="label label-default" id="currentSong"></label>
         </div>
         <script>
             setInterval(function () {
@@ -86,7 +94,8 @@
                     url: '/currentSong',
                     type:"GET",
                     success: function(result){
-                        $('#currentSong').text(result.songText);
+                        console.log(result);
+                        $('#currentSong').text(result.title);
                     }
                 })
             }, 1000);
@@ -120,7 +129,8 @@
         <% songs.forEach(function(song, index) { %>
         <div>
             <form action="/song" method="post" target="iframe">
-                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' id='<%=index %>'>
+                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' id='<%=index %>'
+                    onclick="play('<%=index %>')">
                     <span class="song-button-span-250">
                         <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                     </span>
