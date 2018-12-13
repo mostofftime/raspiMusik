@@ -22,8 +22,6 @@
             <script>
                 function play(index) {
                     console.log(index);
-                    $('#' + index).css('border-color', 'red');
-                    $('#' + index).css('border-style', 'solid');
                     $('#playButton').css('display', 'none');
                     $('#pauseButton').css('display', 'inline');
                 }
@@ -87,6 +85,22 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
             </form>
         </div>
+        <div>
+            <label class="label" id="currentSong">Song here<label>
+        </div>
+        <script>
+            setInterval(function () {
+                console.log("a");
+                $.ajax({
+                    url: '/currentSong',
+                    type:"GET",
+                    success: function(result){
+                        console.log(result);
+                        $('#currentSong').css('value', result.title);
+                    }
+                })
+            }, 1000);
+        </script>
     </div>
 
     <div style="text-align: center; margin-top: 100px; color: purple">

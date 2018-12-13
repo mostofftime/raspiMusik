@@ -175,4 +175,8 @@ function setNewSong(index) {
     playing = true;
 }
 
+app.get('/currentSong', function(req, res){
+    res.json({"title" : songDetails[currentSongIndex].title});
+});
+
 app.listen(8080);
