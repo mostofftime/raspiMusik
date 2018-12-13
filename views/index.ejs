@@ -11,7 +11,7 @@
 
 <body style="background-color: #968bdc">
     <div class="navbar navbar-default navbar-fixed-top" style="min-height: 100px; max-height: 100px; height: 100px; background-color: slateblue;">
-        <div style="margin: 0 auto; width: 200px">
+        <div style="margin: 0 auto; width: 200px; height: 34px;">
             <form action="/previous" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
             </form>
@@ -26,7 +26,7 @@
                     $('#pauseButton').css('display', 'inline');
                 }
             </script>
-            <form action="/play" method="post" target="iframe" style="float: left; width: 40px; height: 34px;">
+            <form action="/play" method="post" target="iframe" style="float: left; width: 40px;">
                 <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
             </form>
 
@@ -36,7 +36,7 @@
                     $('#playButton').css('display', 'inline');
                 }
             </script>
-            <form action="/pause" method="post" target="iframe" style="float: left; width: 40px; height: 34px;">
+            <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
                 <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
             </form>
 
@@ -58,7 +58,7 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
             </form>
         </div>
-        <div style="margin: 0 auto; width: 120px">
+        <div style="margin: 0 auto; width: 120px; height: 34px;">
             <form action="/volDown" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
             </form>
