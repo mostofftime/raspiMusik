@@ -85,7 +85,8 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-up"></span></button>
             </form>
         </div>
-        <div style="margin: 0 auto; width: 200px">
+        <br>
+        <div style="margin: 0 auto; width: auto">
             <label class="label label-default" id="currentSong">abc</label>
         </div>
         <script>
@@ -95,7 +96,7 @@
                     type:"GET",
                     success: function(result){
                         console.log(result);
-                        $('#currentSong').attr('value',  result.title);
+                        $('#currentSong').text(result.title);
                     }
                 })
             }, 1000);
