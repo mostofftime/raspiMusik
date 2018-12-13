@@ -94,8 +94,7 @@
                     url: '/currentSong',
                     type:"GET",
                     success: function(result){
-                        console.log(result);
-                        $('#currentSong').text(result.title);
+                        $('#currentSong').text(result.songText);
                     }
                 })
             }, 1000);
