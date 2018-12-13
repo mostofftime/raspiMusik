@@ -176,7 +176,7 @@ function setNewSong(index) {
 }
 
 app.get('/currentSong', function (req, res) {
-    res.json({ "title": songDetails[currentSongIndex].title + " - " + songDetails[currentSongIndex].artist });
+    res.json({ "songText": songDetails[currentSongIndex].title + " - " + songDetails[currentSongIndex].artist });
 });
 
 app.listen(8080);
