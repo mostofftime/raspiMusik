@@ -126,28 +126,30 @@
         </div>
         <% songs.forEach(function(song, index) { %>
         <div>
-            <form action="/song" method="post" target="iframe" style="float: left">
-                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' id='<%=index %>'
-                    onclick="play()">
-                    <span class="song-button-span-250">
-                        <%=songDetails[index].title != null ? songDetails[index].title : "" %>
-                    </span>
-                    <span class="song-button-span-250 text-muted">
-                        <%=songDetails[index].album != null ? songDetails[index].album : "" %>
-                    </span>
-                    <span class="song-button-span-250 text-muted">
-                        <%=songDetails[index].artist != null ? songDetails[index].artist : "" %>
-                    </span>
-                    <span class="song-button-span-50 text-muted">
-                        <%=songDetails[index].v2.track != null ? songDetails[index].v2.track.substring(0, songDetails[index].v2.track.indexOf("/")) : songDetails.v1.track != null ? songDetails.v1.track.substring(0, songDetails[index].v1.track.indexOf("/")) : "" %>
-                    </span>
-                </button>
-            </form>
-            <form action="/playlist" method="post" target="iframe" style="float: left">
-                <button class="btn btn-secondary playlist-button" type="submit" value='<%=index %>' name='<%=index %>'
-                    id='<%=index %>'>
-                    <span class="glyphicon glyphicon-plus"></span></button>
-            </form>
+            <span>
+                <form action="/song" method="post" target="iframe" style="float: left">
+                    <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>'
+                        id='<%=index %>' onclick="play()">
+                        <span class="song-button-span-250">
+                            <%=songDetails[index].title != null ? songDetails[index].title : "" %>
+                        </span>
+                        <span class="song-button-span-250 text-muted">
+                            <%=songDetails[index].album != null ? songDetails[index].album : "" %>
+                        </span>
+                        <span class="song-button-span-250 text-muted">
+                            <%=songDetails[index].artist != null ? songDetails[index].artist : "" %>
+                        </span>
+                        <span class="song-button-span-50 text-muted">
+                            <%=songDetails[index].v2.track != null ? songDetails[index].v2.track.substring(0, songDetails[index].v2.track.indexOf("/")) : songDetails.v1.track != null ? songDetails.v1.track.substring(0, songDetails[index].v1.track.indexOf("/")) : "" %>
+                        </span>
+                    </button>
+                </form>
+                <form action="/playlist" method="post" target="iframe" style="float: left">
+                    <button class="btn btn-secondary playlist-button" type="submit" value='<%=index %>' name='<%=index %>'
+                        id='<%=index %>'>
+                        <span class="glyphicon glyphicon-plus"></span></button>
+                </form>
+            </span>
         </div>
         <% }); %>
     </div>
