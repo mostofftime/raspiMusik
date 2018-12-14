@@ -20,8 +20,7 @@
             </form>
 
             <script>
-                function play(index) {
-                    console.log(index);
+                function play() {
                     $('#playButton').css('display', 'none');
                     $('#pauseButton').css('display', 'inline');
                 }
@@ -86,14 +85,14 @@
             </form>
         </div>
         <div align="center">
-            <label class="label label-default" id="currentSong"></label>
+            <label class="label label-info" id="currentSong"></label>
         </div>
         <script>
             setInterval(function () {
                 $.ajax({
                     url: '/currentSong',
-                    type:"GET",
-                    success: function(result){
+                    type: "GET",
+                    success: function (result) {
                         $('#currentSong').text(result.songText);
                     }
                 })
@@ -127,9 +126,9 @@
         </div>
         <% songs.forEach(function(song, index) { %>
         <div>
-            <form action="/song" method="post" target="iframe">
+            <form action="/song" method="post" target="iframe" style="float: left">
                 <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' id='<%=index %>'
-                    onclick="play('<%=index %>')">
+                    onclick="play()">
                     <span class="song-button-span-250">
                         <%=songDetails[index].title != null ? songDetails[index].title : "" %>
                     </span>
@@ -143,6 +142,10 @@
                         <%=songDetails[index].v2.track != null ? songDetails[index].v2.track.substring(0, songDetails[index].v2.track.indexOf("/")) : songDetails.v1.track != null ? songDetails.v1.track.substring(0, songDetails[index].v1.track.indexOf("/")) : "" %>
                     </span>
                 </button>
+            </form>
+            <form action="/playlist" method="post" target="iframe">
+                <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>' id='<%=index %>'>
+                    <span class="glyphicon glyphicon-plus"></span></button>
             </form>
         </div>
         <% }); %>

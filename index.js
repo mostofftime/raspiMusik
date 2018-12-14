@@ -21,6 +21,7 @@ var songDetails = [];
 var playmodeEnum = { "shuffle": 1, "linear": 2 };
 var mode = playmodeEnum.linear;
 var volume = -1600;
+var playlist = [];
 
 //gets song file names from mediaDir
 fs.readdirSync(mediaDir)
@@ -174,6 +175,10 @@ function setNewSong(index) {
     player.newSource(path.join(mediaDir, songs[currentSongIndex]), "local", false, volume);
     playing = true;
 }
+
+app.post('/playlist', function (req, res) {
+    playlist.push(req.body.index);
+});
 
 app.get('/currentSong', function (req, res) {
     res.json({ "songText": songDetails[currentSongIndex].title + " - " + songDetails[currentSongIndex].artist });
