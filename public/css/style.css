@@ -60,7 +60,7 @@
 }
 
 .song-button{
-    width: 95%; 
+    width: 100%; 
     text-align: left;
     border-style: hidden;
     border-bottom-style: solid; 
@@ -70,7 +70,7 @@
 }
 
 .playlist-button{
-    width: 5%; 
+    width: 100%; 
     text-align: left;
     border-style: hidden;
     border-bottom-style: solid; 
