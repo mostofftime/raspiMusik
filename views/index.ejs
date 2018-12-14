@@ -127,7 +127,7 @@
         <% songs.forEach(function(song, index) { %>
         <div>
             <span>
-                <form action="/song" method="post" target="iframe" style="float left">
+                <form action="/song" method="post" target="iframe" style="float: left">
                     <button class="btn btn-secondary song-button" type="submit" value='<%=index %>' name='<%=index %>'
                         id='<%=index %>' onclick="play()">
                         <span class="song-button-span-250">
