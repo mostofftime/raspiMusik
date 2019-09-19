@@ -56,7 +56,6 @@ songs.forEach(function (song, index) {
 
         songDetails[index] = tags;
         asyncCounter++;
-        console.log(tags);
         if (asyncCounter === songs.length) {
             sort();
         }
