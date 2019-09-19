@@ -35,9 +35,9 @@ var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function (song, index) {
     id3({ file: path.join(mediaDir, song), type: id3.OPEN_LOCAL }, function (err, tags) {
-        tags.title = tags.title.replace('\\u0000', '');
-        tags.album = tags.album.replace('\\u0000', '');
-        tags.artist = tags.artist.replace('\\u0000', '');
+        tags.title = tags.title.replace(/\u0000/g, '');
+        tags.album = tags.album.replace(/\u0000/g, '');
+        tags.artist = tags.artist.replace(/\u0000/g, '');
         songDetails[index] = tags;
         asyncCounter++;
         console.log(tags);
