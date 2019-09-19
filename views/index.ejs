@@ -146,7 +146,7 @@
                             <%=songDetails[index].artist != null ? songDetails[index].artist : "" %>
                         </span>
                         <span class="song-button-span-50 text-muted">
-                            <%=songDetails[index].v2.track != null ? songDetails[index].v2.track.substring(0, songDetails[index].v2.track.indexOf("/")) : songDetails.v1.track != null ? songDetails.v1.track.substring(0, songDetails[index].v1.track.indexOf("/")) : "" %>
+                            <%=(songDetails[index].v2 && songDetails[index].v2.track != null) ? songDetails[index].v2.track.substring(0, songDetails[index].v2.track.indexOf("/")) : (songDetails.v1 && songDetails.v1.track != null) ? songDetails.v1.track.substring(0, songDetails[index].v1.track.indexOf("/")) : "" %>
                         </span>
                     </button>
                 </form>
