@@ -38,6 +38,13 @@ songs.forEach(function (song, index) {
         tags.title = tags.title.replace(/\u0000/g, '');
         tags.album = tags.album.replace(/\u0000/g, '');
         tags.artist = tags.artist.replace(/\u0000/g, '');
+        if (tags.v1) {
+            tags.v1.forEach(subtag => subtag.replace(/\u0000/g, ''));
+        }
+        if (tags.v2) {
+            tags.v2.forEach(subtag => subtag.replace(/\u0000/g, ''));
+        }
+
         songDetails[index] = tags;
         asyncCounter++;
         console.log(tags);
