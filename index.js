@@ -46,7 +46,7 @@ songs.forEach(function (song, index) {
 
         if (tags.v2) {
             for (i = 0; i < tags.v2.length; i++) {
-                tags.v1[i] = tags.v2[i].replace(/\u0000/g, '');
+                tags.v2[i] = tags.v2[i].replace(/\u0000/g, '');
             }
         }
 
