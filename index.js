@@ -39,13 +39,13 @@ songs.forEach(function (song, index) {
         tags.album = tags.album.replace(/\u0000/g, '');
         tags.artist = tags.artist.replace(/\u0000/g, '');
         if (tags.v1) {
-            for (var key in v1) {
+            for (var key in tags.v1) {
                 tags.v1[key] = tags.v1[key].replace(/\u0000/g, '');
             }
         }
 
         if (tags.v2) {
-            for (var key in v2) {
+            for (var key in tags.v2) {
                 tags.v2[key] = tags.v2[key].replace(/\u0000/g, '');
             }
         }
