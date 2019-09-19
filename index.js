@@ -39,14 +39,14 @@ songs.forEach(function (song, index) {
         tags.album = tags.album.replace(/\u0000/g, '');
         tags.artist = tags.artist.replace(/\u0000/g, '');
         if (tags.v1) {
-            for (i = 0; i < tags.v1.length; i++) {
-                tags.v1[i] = tags.v1[i].replace(/\u0000/g, '');
+            for (var key in v1) {
+                tags.v1[key] = tags.v1[key].replace(/\u0000/g, '');
             }
         }
 
         if (tags.v2) {
-            for (i = 0; i < tags.v2.length; i++) {
-                tags.v2[i] = tags.v2[i].replace(/\u0000/g, '');
+            for (var key in v2) {
+                tags.v2[key] = tags.v2[key].replace(/\u0000/g, '');
             }
         }
 
