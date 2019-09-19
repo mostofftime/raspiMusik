@@ -10,10 +10,12 @@
 </head>
 
 <body style="background-color: #968bdc">
-    <div class="navbar navbar-default navbar-fixed-top" style="min-height: 100px; max-height: 100px; height: 100px; background-color: slateblue;">
+    <div class="navbar navbar-default navbar-fixed-top"
+        style="min-height: 100px; max-height: 100px; height: 100px; background-color: slateblue;">
         <div style="margin: 0 auto; width: 200px; height: 34px;">
             <form action="/previous" method="post" target="iframe" style="float: left; width: 40px">
-                <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-backward"></span></button>
+                <button class="btn btn-info" type="submit"><span
+                        class="glyphicon glyphicon-fast-backward"></span></button>
             </form>
             <form action="/back30" method="post" target="iframe" style="float: left; width: 40px">
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-backward"></span></button>
@@ -26,7 +28,8 @@
                 }
             </script>
             <form action="/play" method="post" target="iframe" style="float: left; width: 40px;">
-                <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-play-circle"></span></button>
+                <button id="playButton" onclick="play()" class="btn btn-info" type="submit"><span
+                        class="glyphicon glyphicon-play-circle"></span></button>
             </form>
 
             <script>
@@ -36,7 +39,8 @@
                 }
             </script>
             <form action="/pause" method="post" target="iframe" style="float: left; width: 40px">
-                <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span class="glyphicon glyphicon-pause"></span></button>
+                <button id="pauseButton" onclick="pause()" class="btn btn-info" type="submit"><span
+                        class="glyphicon glyphicon-pause"></span></button>
             </form>
 
             <% if(playing){ %>
@@ -54,12 +58,14 @@
                 <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-forward"></span></button>
             </form>
             <form action="/next" method="post" target="iframe" style="float:left; width: 40px">
-                <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-fast-forward"></span></button>
+                <button class="btn btn-info" type="submit"><span
+                        class="glyphicon glyphicon-fast-forward"></span></button>
             </form>
         </div>
         <div style="margin: 0 auto; width: 120px; height: 34px;">
             <form action="/volDown" method="post" target="iframe" style="float: left; width: 40px">
-                <button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-volume-down"></span></button>
+                <button class="btn btn-info" type="submit"><span
+                        class="glyphicon glyphicon-volume-down"></span></button>
             </form>
             <script>
                 function toggleShuffle() {
@@ -72,8 +78,8 @@
             </script>
 
             <form action="/toggleShuffle" method="post" target="iframe" style="float: left; width: 40px">
-                <button onclick="toggleShuffle()" class="btn btn-info" type="submit"><span id="shuffleSpan" class="glyphicon glyphicon-random"
-                        style="color:grey"></span></button>
+                <button onclick="toggleShuffle()" class="btn btn-info" type="submit"><span id="shuffleSpan"
+                        class="glyphicon glyphicon-random" style="color:grey"></span></button>
             </form>
             <% if(mode == 1){%>
             <script>
@@ -144,11 +150,13 @@
                         </span>
                     </button>
                 </form>
+                <!--
                 <form action="/playlist" method="post" target="iframe" style="float: left">
                     <button class="btn btn-secondary playlist-button" type="submit" value='<%=index %>' name='<%=index %>'
                         id='<%=index %>'>
                         <span class="glyphicon glyphicon-plus"></span></button>
                 </form>
+            -->
             </span>
         </div>
         <% }); %>

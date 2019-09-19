@@ -35,6 +35,7 @@ var asyncCounter = 0;
 songDetails.length = songs.length;
 songs.forEach(function (song, index) {
     id3({ file: path.join(mediaDir, song), type: id3.OPEN_LOCAL }, function (err, tags) {
+        console.log(tags);
         songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
@@ -158,6 +159,7 @@ app.post('/previous', function (req, res) {
 
 app.post('/toggleShuffle', function (req, res) {
     mode = mode === playmodeEnum.linear ? playmodeEnum.shuffle : playmodeEnum.linear;
+    console.log("Set mode to" + mode);
 });
 
 function setNewSong(index) {

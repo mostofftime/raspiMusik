@@ -57,6 +57,7 @@
     border-radius: 0px;
     height: auto;
     background-color: whitesmoke;
+    float: left;
 }
 
 .song-button{
