@@ -36,6 +36,9 @@ songDetails.length = songs.length;
 songs.forEach(function (song, index) {
     id3({ file: path.join(mediaDir, song), type: id3.OPEN_LOCAL }, function (err, tags) {
         console.log(tags);
+        tags.title = tags.title.replace(/[\u00A0\u1680​\u180e\u2000-\u2009\u200a​\u200b​\u202f\u205f​\u3000]/g, '');
+        tags.album = tags.album.replace(/[\u00A0\u1680​\u180e\u2000-\u2009\u200a​\u200b​\u202f\u205f​\u3000]/g, '');
+        tags.artist = tags.artist.replace(/[\u00A0\u1680​\u180e\u2000-\u2009\u200a​\u200b​\u202f\u205f​\u3000]/g, '');
         songDetails[index] = tags;
         asyncCounter++;
         if (asyncCounter === songs.length) {
@@ -125,7 +128,6 @@ app.post('/volDown', function (req, res) {
 });
 
 app.post('/song', function (req, res) {
-    console.log(req);
     console.log("playing: " + songs[req.body.index]);
     setNewSong(req.body.index);
 });
