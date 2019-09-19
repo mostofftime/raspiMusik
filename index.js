@@ -40,14 +40,17 @@ songs.forEach(function (song, index) {
         tags.artist = tags.artist.replace(/\u0000/g, '');
         if (tags.v1) {
             for (var key in tags.v1) {
-                console.log(key);
-                tags.v1[key] = tags.v1[key].replace(/\u0000/g, '');
+                if (typeof tags.v1[key] === 'string' || tags.v1[key] instanceof string) {
+                    tags.v1[key] = tags.v1[key].replace(/\u0000/g, '');
+                }
             }
         }
 
         if (tags.v2) {
             for (var key in tags.v2) {
-                tags.v2[key] = tags.v2[key].replace(/\u0000/g, '');
+                if (typeof tags.v2[key] === 'string' || tags.v2[key] instanceof string) {
+                    tags.v2[key] = tags.v2[key].replace(/\u0000/g, '');
+                }
             }
         }
 
