@@ -40,6 +40,7 @@ songs.forEach(function (song, index) {
         tags.artist = tags.artist.replace(/\u0000/g, '');
         if (tags.v1) {
             for (var key in tags.v1) {
+                console.log(key);
                 tags.v1[key] = tags.v1[key].replace(/\u0000/g, '');
             }
         }
