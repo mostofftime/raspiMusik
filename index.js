@@ -39,10 +39,15 @@ songs.forEach(function (song, index) {
         tags.album = tags.album.replace(/\u0000/g, '');
         tags.artist = tags.artist.replace(/\u0000/g, '');
         if (tags.v1) {
-            tags.v1.forEach(subtag => subtag.replace(/\u0000/g, ''));
+            for (i = 0; i < tags.v1.length; i++) {
+                tags.v1[i] = tags.v1[i].replace(/\u0000/g, '');
+            }
         }
+
         if (tags.v2) {
-            tags.v2.forEach(subtag => subtag.replace(/\u0000/g, ''));
+            for (i = 0; i < tags.v2.length; i++) {
+                tags.v1[i] = tags.v2[i].replace(/\u0000/g, '');
+            }
         }
 
         songDetails[index] = tags;
