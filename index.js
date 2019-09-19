@@ -125,6 +125,7 @@ app.post('/volDown', function (req, res) {
 });
 
 app.post('/song', function (req, res) {
+    console.log(req);
     console.log("playing: " + songs[req.body.index]);
     setNewSong(req.body.index);
 });
